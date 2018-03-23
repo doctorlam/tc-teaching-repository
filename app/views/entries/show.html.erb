@@ -25,5 +25,9 @@
   <%= @entry.course %>
 </p>
 
+<p>
+  <strong>Attachments:</strong>
+  <%= link_to @entry.attachment.file.filename, @entry.attachment_url if @entry.attachment? %>
+</p>
 <%= link_to 'Edit', edit_entry_path(@entry) %> |
 <%= link_to 'Back', entries_path %>

@@ -35,6 +35,17 @@
     <%= form.label :course %>
     <%= form.text_field :course, id: :entry_course %>
   </div>
+  <div class="form-field">
+    <% if @entry.attachment? %>
+    <%= form.check_box :remove_attachment %>
+
+      <%= @entry.attachment.file.filename %>
+    <% else %>
+
+    <%= form.file_field :attachment %>
+
+    <% end %>
+  </div>
 
   <div class="actions">
     <%= form.submit %>

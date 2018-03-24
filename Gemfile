@@ -16,6 +16,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootstrap', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'carrierwave', '~> 1.0'
+gem 'filterrific'
+gem 'will_paginate', '~> 3.1.0'
 
 
 group :development, :test do

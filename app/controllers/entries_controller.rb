@@ -7,6 +7,8 @@ class EntriesController < ApplicationController
     @entries = Entry.all
   end
 
+
+
   # GET /entries/1
   # GET /entries/1.json
   def show
@@ -69,6 +71,6 @@ class EntriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def entry_params
-      params.require(:entry).permit(:title, :entry_type, :genre, :level, :course,  :attachment, :remove_attachment)
+      params.require(:entry).permit(:title, :entry_type,:entry_type_other, :genre, :level, :course,  :attachment, :remove_attachment)
     end
 end

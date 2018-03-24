@@ -8,6 +8,10 @@
 <p>
   <strong>Type:</strong>
   <%= @entry.entry_type %>
+  <br>
+  <% if @entry.entry_type_other? %>
+    Other: <%= @entry.entry_type_other %>
+  <% end %>
 </p>
 
 <p>

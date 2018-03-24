@@ -10,30 +10,33 @@
       </ul>
     </div>
   <% end %>
-
   <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title, id: :entry_title %>
+    <%= form.label :title, "What is this resource?" %>
+    <%= form.text_field :title, id: :entry_title, class: 'form-control' %>
   </div>
 
   <div class="field">
-    <%= form.label :entry_type %>
-    <%= form.text_field :entry_type, id: :entry_type %>
+    <%= form.label :entry_type, "What kind of resource is it?" %>
+    <%= form.select(:entry_type, ["Activity/Lab", "Assessment", "Case Study", "Data Set", "Diagram/Illustration", "Genre Template", "Homework/Assignment", "Lecture", "Lesson Plan", "Sample Genre Document","Syllabus", "Other"], id: "entry") %>
   </div>
 
   <div class="field">
-    <%= form.label :genre %>
-    <%= form.text_field :genre, id: :entry_genre %>
+    <%= form.label :entry_type_other, "If you selected Other, please describe:" %>
+    <%= form.text_field :entry_type_other, class: 'other-show form-control' %>
+  </div>
+  <div class="field">
+    <%= form.label :genre, "What genre is this resource related to?" %>
+    <%= form.select(:genre, ["Any Genre", "Infographic", "IMRaD Report", "Manual", "Report (general)", "Usability/UX Report", "Usability/UX Script", "Website", "Other"], id: "entry") %>
   </div>
 
   <div class="field">
-    <%= form.label :level %>
-    <%= form.text_field :level, id: :entry_level %>
+    <%= form.label :level, "Who's it for?" %>
+   <%= form.select(:level, [ "Undergraduate", "Graduate", "All"], id: "entry") %>
   </div>
 
   <div class="field">
-    <%= form.label :course %>
-    <%= form.text_field :course, id: :entry_course %>
+    <%= form.label :course, "What courses is this resource relevant to?" %>
+    <%= form.select(:course, [ "Any Course","Introductory Technical Communication","Manual and Procedure Writing", "Proposal Writing", "Technical Editing", "Usability/UX", "Web Design", "Other"], id: "entry") %>
   </div>
   <div class="form-field">
     <% if @entry.attachment? %>
@@ -41,13 +44,28 @@
 
       <%= @entry.attachment.file.filename %>
     <% else %>
-
+    <h3>Attach the Resource</h3>
     <%= form.file_field :attachment %>
 
     <% end %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <br>
+    <%= form.submit "Create Resource", class: 'btn btn-primary' %>
   </div>
 <% end %>
+<script type="text/javascript">
+  $(document).ready(function(){
+  $('#entry').change(function() {
+    if(this.value == "Other") {
+      $('.other-show').val('');      
+      $('.other-show').show();
+    }else{
+      $('.other-show').val(this.value);
+      $('.other-show').hide();
+    }
+  });
+});
+
+</script>

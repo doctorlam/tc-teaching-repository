@@ -14,6 +14,8 @@
 //= require jquery3
 //= require popper
 //= require bootstrap
+//= require filterrific/filterrific-jquery
 //= require turbolinks
 //= require_tree .
+
 

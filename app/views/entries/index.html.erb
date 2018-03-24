@@ -4,18 +4,34 @@
     <div class="col-md-4">
       <div class="type-filter">
       <h3>Filter by category</h3>
-      <%= form_tag entries_path, method: 'get', id: "entries_search" do%>
+      <%= form_tag entries_path, method: 'get', class: "entries_search" do%>
 
         <% @categories.each do |category| %>
-        <%= check_box_tag "by_category[]", category.id %><%= category.name %><br>
+        <label><%= check_box_tag "by_category[]", category.id %><%= category.name %></label><br>
               <% end %>
 
-        <%= submit_tag "submit" %>
               <% end %>
 
       </div><!--/type-filter-->
 
-      
+      <div class="type-filter">
+      <h3>Filter by Course Type</h3>
+      <%= form_tag entries_path, method: 'get', class: "entries_search" do%>
+
+        <label>
+          <%= check_box_tag "by_level[]", "Graduate" %>Graduate
+
+          </label> <br>
+        <label><%= check_box_tag "by_level[]", "Undergraduate" %>Undergraduate
+        </label>
+
+        <br>
+
+              <% end %>
+
+      </div><!--/type-filter-->
+      <br>
+      <%= link_to "Clear Filters", entries_path %>
     </div><!--/col-md-4-->
     
     <div class="col-md-8">
@@ -26,13 +42,13 @@
 <script type = "text/javascript">
 $(function () {
   $('input[type=checkbox]').change(function(){
-  $.get($('#entries_search').attr('action'),
-  $('#entries_search').serialize(), null, 'script');
+  $.get($('.entries_search').attr('action'),
+  $('.entries_search').serialize(), null, 'script');
   return false;
 
 });
 
-  $('#entries_search').submit(function () {
+  $('.entries_search').submit(function () {
     $.get(this.action, $(this).serialize(), null, 'script');
     return false;
   });

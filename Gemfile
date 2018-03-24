@@ -18,7 +18,7 @@ gem 'jquery-rails'
 gem 'carrierwave', '~> 1.0'
 gem 'filterrific'
 gem 'will_paginate', '~> 3.1.0'
-
+gem 'has_scope'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

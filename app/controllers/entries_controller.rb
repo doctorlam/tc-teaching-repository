@@ -1,10 +1,13 @@
 class EntriesController < ApplicationController
   before_action :set_entry, only: [:show, :edit, :update, :destroy]
+  has_scope :by_category, type: :array
+    has_scope :by_level, type: :array
 
   # GET /entries
   # GET /entries.json
   def index
-    @entries = Entry.all
+    @entries = apply_scopes(Entry).all
+    @categories = Category.all
   end
 
 

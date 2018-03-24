@@ -15,6 +15,13 @@
     <%= form.text_field :title, id: :entry_title, class: 'form-control' %>
   </div>
 
+
+ <h2>Resource Category</h2>
+  <%= form.collection_select :category_id, @categories, :id, :name %>
+
+
+  
+
   <div class="field">
     <%= form.label :entry_type, "What kind of resource is it?" %>
     <%= form.select(:entry_type, ["Activity/Lab", "Assessment", "Case Study", "Data Set", "Diagram/Illustration", "Genre Template", "Homework/Assignment", "Lecture", "Lesson Plan", "Sample Genre Document","Syllabus", "Other"], id: "entry") %>
@@ -37,6 +44,7 @@
   <div class="field">
     <%= form.label :course, "What courses is this resource relevant to?" %>
     <%= form.select(:course, [ "Any Course","Introductory Technical Communication","Manual and Procedure Writing", "Proposal Writing", "Technical Editing", "Usability/UX", "Web Design", "Other"], id: "entry") %>
+
   </div>
   <div class="form-field">
     <% if @entry.attachment? %>
@@ -50,22 +58,9 @@
     <% end %>
   </div>
 
+
   <div class="actions">
     <br>
     <%= form.submit "Create Resource", class: 'btn btn-primary' %>
   </div>
 <% end %>
-<script type="text/javascript">
-  $(document).ready(function(){
-  $('#entry').change(function() {
-    if(this.value == "Other") {
-      $('.other-show').val('');      
-      $('.other-show').show();
-    }else{
-      $('.other-show').val(this.value);
-      $('.other-show').hide();
-    }
-  });
-});
-
-</script>

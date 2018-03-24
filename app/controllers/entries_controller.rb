@@ -16,22 +16,28 @@ class EntriesController < ApplicationController
 
   # GET /entries/new
   def new
-    @entry = Entry.new
+    @categories = Category.all
+    @entry = Entry.new 
+    @entry.category_id = params[:category_id] 
   end
 
   # GET /entries/1/edit
   def edit
+    @categories = Category.all
   end
 
   # POST /entries
   # POST /entries.json
   def create
+    @categories = Category.all
     @entry = Entry.new(entry_params)
 
     respond_to do |format|
       if @entry.save
+
         format.html { redirect_to @entry, notice: 'Entry was successfully created.' }
         format.json { render :show, status: :created, location: @entry }
+
       else
         format.html { render :new }
         format.json { render json: @entry.errors, status: :unprocessable_entity }
@@ -42,6 +48,8 @@ class EntriesController < ApplicationController
   # PATCH/PUT /entries/1
   # PATCH/PUT /entries/1.json
   def update
+    @categories = Category.all
+    @entry.category_id = params[:category_id]
     respond_to do |format|
       if @entry.update(entry_params)
         format.html { redirect_to @entry, notice: 'Entry was successfully updated.' }
@@ -67,10 +75,13 @@ class EntriesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_entry
       @entry = Entry.find(params[:id])
+      @entry.category_id = params[:category_id] 
+
     end
 
+    
     # Never trust parameters from the scary internet, only allow the white list through.
     def entry_params
-      params.require(:entry).permit(:title, :entry_type,:entry_type_other, :genre, :level, :course,  :attachment, :remove_attachment)
+      params.require(:entry).permit( :category_id, :title, :entry_type,:entry_type_other, :genre, :level, :course,  :attachment, :remove_attachment)
     end
 end

@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180323213856) do
+ActiveRecord::Schema.define(version: 20180324153343) do
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "entries", force: :cascade do |t|
     t.string "title"
@@ -23,6 +29,7 @@ ActiveRecord::Schema.define(version: 20180323213856) do
     t.string "attachment"
     t.string "attachments"
     t.string "entry_type_other"
+    t.integer "category_id"
   end
 
 end

@@ -15,37 +15,17 @@
     <%= form.text_field :title, id: :entry_title, class: 'form-control' %>
   </div>
 
+  <h2>Resource Topic:</h2>
+<%= form.collection_select :topic_id, @topics, :id, :name, :prompt => true %>
 
  <h2>Resource Category</h2>
-  <%= form.collection_select :category_id, @categories, :id, :name %>
-
-
-  
+  <%= form.collection_select :category_id, @categories, :id, :name, :prompt => true %>
 
   <div class="field">
-    <%= form.label :entry_type, "What kind of resource is it?" %>
-    <%= form.select(:entry_type, ["Activity/Lab", "Assessment", "Case Study", "Data Set", "Diagram/Illustration", "Genre Template", "Homework/Assignment", "Lecture", "Lesson Plan", "Sample Genre Document","Syllabus", "Other"], id: "entry") %>
+    <h2><%= form.label :level, "Who's it for?" %></h2>
+   <%= form.select(:level, [ "Undergraduate", "Graduate", "All Students"], id: "entry", :include_blank => 'Please select') %>
   </div>
 
-  <div class="field">
-    <%= form.label :entry_type_other, "If you selected Other, please describe:" %>
-    <%= form.text_field :entry_type_other, class: 'other-show form-control' %>
-  </div>
-  <div class="field">
-    <%= form.label :genre, "What genre is this resource related to?" %>
-    <%= form.select(:genre, ["Any Genre", "Infographic", "IMRaD Report", "Manual", "Report (general)", "Usability/UX Report", "Usability/UX Script", "Website", "Other"], id: "entry") %>
-  </div>
-
-  <div class="field">
-    <%= form.label :level, "Who's it for?" %>
-   <%= form.select(:level, [ "Undergraduate", "Graduate", "All"], id: "entry") %>
-  </div>
-
-  <div class="field">
-    <%= form.label :course, "What courses is this resource relevant to?" %>
-    <%= form.select(:course, [ "Any Course","Introductory Technical Communication","Manual and Procedure Writing", "Proposal Writing", "Technical Editing", "Usability/UX", "Web Design", "Other"], id: "entry") %>
-
-  </div>
   <div class="form-field">
     <% if @entry.attachment? %>
     <%= form.check_box :remove_attachment %>

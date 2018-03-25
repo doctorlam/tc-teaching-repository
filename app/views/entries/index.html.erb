@@ -3,7 +3,19 @@
 <div class="row">
     <div class="col-md-4">
       <div class="type-filter">
-      <h3>Filter by category</h3>
+      <h3>Filter by Resource Topic</h3>
+      <%= form_tag entries_path, method: 'get', class: "entries_search" do%>
+
+        <% @topics.each do |topic| %>
+        <label><%= check_box_tag "by_topic[]", topic.id %><%= topic.name %></label><br>
+              <% end %>
+
+              <% end %>
+
+      </div><!--/type-filter-->
+
+      <div class="type-filter">
+      <h3>Filter by Resource Type</h3>
       <%= form_tag entries_path, method: 'get', class: "entries_search" do%>
 
         <% @categories.each do |category| %>

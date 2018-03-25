@@ -1,13 +1,16 @@
 class EntriesController < ApplicationController
   before_action :set_entry, only: [:show, :edit, :update, :destroy]
+  before_action :set_variables, only: [:new, :create, :show, :edit, :update, :index]
   has_scope :by_category, type: :array
-    has_scope :by_level, type: :array
+  has_scope :by_level, type: :array
+  has_scope :by_topic, type: :array
+
 
   # GET /entries
   # GET /entries.json
   def index
     @entries = apply_scopes(Entry).all
-    @categories = Category.all
+
   end
 
 
@@ -19,20 +22,20 @@ class EntriesController < ApplicationController
 
   # GET /entries/new
   def new
-    @categories = Category.all
+   
     @entry = Entry.new 
-    @entry.category_id = params[:category_id] 
   end
 
   # GET /entries/1/edit
   def edit
+    @topics = Topic.all
     @categories = Category.all
   end
 
   # POST /entries
   # POST /entries.json
   def create
-    @categories = Category.all
+    
     @entry = Entry.new(entry_params)
 
     respond_to do |format|
@@ -51,8 +54,7 @@ class EntriesController < ApplicationController
   # PATCH/PUT /entries/1
   # PATCH/PUT /entries/1.json
   def update
-    @categories = Category.all
-    @entry.category_id = params[:category_id]
+   
     respond_to do |format|
       if @entry.update(entry_params)
         format.html { redirect_to @entry, notice: 'Entry was successfully updated.' }
@@ -78,13 +80,17 @@ class EntriesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_entry
       @entry = Entry.find(params[:id])
-      @entry.category_id = params[:category_id] 
-
+      @entry.category_id = params[:category_id]
+      @entry.topic_id = params[:topic_id]
     end
-
+    def set_variables
+      @categories = Category.all
+      @topics = Topic.all
+     
+    end
     
     # Never trust parameters from the scary internet, only allow the white list through.
     def entry_params
-      params.require(:entry).permit( :category_id, :title, :entry_type,:entry_type_other, :genre, :level, :course,  :attachment, :remove_attachment)
+      params.require(:entry).permit( :category_id, :title, :entry_type,:entry_type_other, :genre, :level, :course,  :attachment, :remove_attachment, :topic_id)
     end
 end

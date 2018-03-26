@@ -11,8 +11,7 @@
         <% @topics.each do |topic| %>
         <label><%= check_box_tag "by_topic[]", topic.id %><%= topic.name %></label><br>
               <% end %>
-
-              <% end %>
+        <% end %>
 
       </div><!--/type-filter-->
 
@@ -47,7 +46,7 @@
 
       </div><!--/type-filter-->
       <br>
-      <%= link_to "Clear Filters", entries_path %>
+      <%= link_to "Clear Filters", entries_path, class: 'btn btn-default' %>
     </div><!--/col-md-4-->
     
     <div class="col-md-8">
@@ -72,7 +71,7 @@ $(function () {
 });
 </script> 
 <script type = "text/javascript">
-var monkeyList = new List('all-resources', { 
+var userList = new List('all-resources', { 
   valueNames: ['name', 'topic', 'type', 'level']
 
 });

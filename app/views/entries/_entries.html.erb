@@ -1,29 +1,26 @@
 
     <h1>Tech Comm Resources</h1>
-   <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>Resource Name</th>
-          <th>Resource Topic</th>
-          <th>Resource Type</th>
-          <th>Student Type</th>
-          <th colspan="3"></th>
-        </tr>
-      </thead>
+      <div class="resource-box list">
 
-      <tbody class="list">
         <% @entries.each do |entry| %>
-          <tr>
-            <td class="name"><%= entry.title %></td>
-            <td class="topic"><%= entry.topic && entry.topic.name %></td>
-            <td class="type"><%= link_to Category.find(entry.category_id).name, category_path(entry.category_id) %></td>
-            <td class="level"><%= entry.level %></td>
-            <td><%= link_to 'Show', entry %></td>
+
+              <ul>
+                <li class="name"><h2><%= entry.title %></h2></li>
+                <li class="topic">
+                  Topic: <%= entry.topic && entry.topic.name %>
+                </li>
+                 <li class="type">
+                  Resource Type: <%= link_to Category.find(entry.category_id).name, category_path(entry.category_id) %>
+                </li>
+                 <li class="level">
+                  Student: <%= entry.level %>
+                </li>
+              </ul>
+                  <td><%= link_to 'Show', entry %></td>
             <td><%= link_to 'Edit', edit_entry_path(entry) %></td>
             <td><%= link_to 'Destroy', entry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          </tr>
         <% end %>
-      </tbody>
-    </table>
+      </div><!--/resource-box-->
+
     <br>
     <%= link_to 'New Entry', new_entry_path, class: 'btn btn-primary' %>

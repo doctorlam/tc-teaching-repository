@@ -128,7 +128,7 @@ nav a, nav a:visited, .logo a, .logo a:visited {
 	border-bottom: 1px solid #484E5F;
 	margin-bottom: 10px;
 }
-#wrapper {
+#wrapper1, #wrapper2, #wrapper3 {
   overflow: hidden;
   transition: height 200ms;
 }
@@ -136,9 +136,7 @@ nav a, nav a:visited, .logo a, .logo a:visited {
 	visibility: hidden;
 	height: 0;
 }
-.open {
-	min-height: auto !important;
-}
+
 i {
 	cursor: pointer;
 }

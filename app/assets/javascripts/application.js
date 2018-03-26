@@ -15,6 +15,7 @@
 //= require popper
 //= require bootstrap
 //= require filterrific/filterrific-jquery
+//= require list.min.js
 //= require turbolinks
 //= require_tree .
 

@@ -28,8 +28,7 @@ class EntriesController < ApplicationController
 
   # GET /entries/1/edit
   def edit
-    @topics = Topic.all
-    @categories = Category.all
+
   end
 
   # POST /entries
@@ -80,8 +79,7 @@ class EntriesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_entry
       @entry = Entry.find(params[:id])
-      @entry.category_id = params[:category_id]
-      @entry.topic_id = params[:topic_id]
+  
     end
     def set_variables
       @categories = Category.all
@@ -91,6 +89,6 @@ class EntriesController < ApplicationController
     
     # Never trust parameters from the scary internet, only allow the white list through.
     def entry_params
-      params.require(:entry).permit( :category_id, :title, :entry_type,:entry_type_other, :genre, :level, :course,  :attachment, :remove_attachment, :topic_id)
+      params.require(:entry).permit(:description, :category_id, :title, :entry_type,:entry_type_other, :genre, :level, :course,  :attachment, :remove_attachment, :topic_id)
     end
 end

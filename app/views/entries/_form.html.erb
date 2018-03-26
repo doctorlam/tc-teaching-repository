@@ -11,15 +11,23 @@
     </div>
   <% end %>
   <div class="field">
-    <%= form.label :title, "What is this resource?" %>
+    <h2><%= form.label :title, "What is this resource?" %></h2>
     <%= form.text_field :title, id: :entry_title, class: 'form-control' %>
   </div>
 
-  <h2>Resource Topic:</h2>
+  <div class="field">
+    <h2>Briefly describe the resource</h2>
+    <%= form.text_area :description, class: 'form-control' %>
+
+  </div>
+
+  <h2>What's it about?</h2>
 <%= form.collection_select :topic_id, @topics, :id, :name, :prompt => true %>
 
- <h2>Resource Category</h2>
-  <%= form.collection_select :category_id, @categories, :id, :name, :prompt => true %>
+ <h2>What kind of resource is it?</h2>
+  <%= form.label :category_id %>
+  <%= form.collection_select :category_id, Category.all, :id, :name %>
+
 
   <div class="field">
     <h2><%= form.label :level, "Who's it for?" %></h2>

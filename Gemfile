@@ -18,6 +18,7 @@ gem 'carrierwave', '~> 1.0'
 gem 'filterrific'
 gem 'will_paginate', '~> 3.1.0'
 gem 'has_scope'
+gem 'listjs-rails'
 
 
 group :production do

@@ -1,37 +1,21 @@
+<div class="container">
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @entry.title %>
-</p>
+  <h2>Resource Name</h2>
+    <%= @entry.title %>
+    <%= @entry.description %>
 
-<p>
-  <strong>Type:</strong>
-  <%= @entry.entry_type %>
-  <br>
-  <% if @entry.entry_type_other? %>
-    Other: <%= @entry.entry_type_other %>
-  <% end %>
-</p>
+  <h2>Resource Topic</h2>
+    <p><%= @entry.topic && @entry.topic.name %></p>
+  <h2>Resource Type</h2>
+    <%= @entry.category && @entry.category.name %>
+  <h2>Who's it for?</h2>
+    <%= @entry.level %>
 
-<p>
-  <strong>Genre:</strong>
-  <%= @entry.genre %>
-</p>
 
-<p>
-  <strong>Level:</strong>
-  <%= @entry.level %>
-</p>
-
-<p>
-  <strong>Course:</strong>
-  <%= @entry.course %>
-</p>
-
-<p>
-  <strong>Attachments:</strong>
+  <h2>Attachments:</h2>
   <%= link_to @entry.attachment.file.filename, @entry.attachment_url if @entry.attachment? %>
 </p>
 <%= link_to 'Edit', edit_entry_path(@entry) %> |
 <%= link_to 'Back', entries_path %>
+</div>

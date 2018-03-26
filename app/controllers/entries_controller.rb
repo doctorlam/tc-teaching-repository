@@ -11,7 +11,7 @@ class EntriesController < ApplicationController
   # GET /entries
   # GET /entries.json
   def index
-    @entries = apply_scopes(Entry.paginate(:page => params[:page], :per_page => 10).order(:created_at => 'DESC'))
+    @entries = apply_scopes(Entry.order(:created_at => 'DESC'))
 
   end
 
@@ -95,7 +95,7 @@ class EntriesController < ApplicationController
       params.require(:entry).permit(:description, :category_id, :title, :entry_type,:entry_type_other, :genre, :level, :course,  :attachment, :remove_attachment, :topic_id, :user, :user_id)
     end
     def user_is_current_user
-    unless current_user == @entry.user 
+    unless current_user == @entry.user or current_user.admin?
       redirect_to(root_url, alert: "Sorry! You can't edit this resource since you didn't create it.") and return
     end
   end

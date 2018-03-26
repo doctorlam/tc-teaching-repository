@@ -80,7 +80,13 @@ h4 {
 	border: none !important;
 
 }
-
+.btn-primary:hover {
+	border: 1px solid #8DC05F !important;
+	color: gray !important;
+}
+header .btn-primary:hover {
+	color: white !important;
+}
 body {
 	background: #F1F1F2;
 	color: #494D5E;
@@ -90,8 +96,8 @@ header {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	height: 80px;
-	background: #2C6836;
+	min-height: 100px;
+	background: #00944E;
 	padding: 10px;
 }
 
@@ -101,16 +107,83 @@ nav ul {
 nav li {
 	display: inline;
 	margin-left: 30px;
+	color: white;
+	font-size: .9rem !important;
 }
 nav a, nav a:visited, .logo a, .logo a:visited {
 	color: white;
 
 }
+.logo {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.circle {
+	position: relative;
+	border: 1px solid white;
+	width: 80px;
+	height: 80px;
+	margin-left: 40px;
+	display:flex;
+justify-content:center;
+align-items:center;
+	margin-top: 12px;
+	margin-bottom: 12px;
+
+}
+.logo h2 {
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-size: 1.3rem;
+	position: absolute;
+	text-align: center;
+	padding:2px;
+
+}
+.logo ul{
+	list-style-type: none;
+	color: white;
+	margin-left: -35px;
+
+}
+.logo li {
+	font-size: .9rem;
+}
+
+/* ==========DEVISE VIEWS ======== */
 .form-container {
 	width: 500px;
 	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
 }
-
+.form-flex {
+	display: flex;
+	flex-direction: column;
+	height: 90vh;
+	justify-content: center;
+	align-items: center;
+}
+.form-flex h2 {
+	text-align: center;
+}
+.form-container h2 {
+	text-align: center;
+	margin-top: 20px;
+	margin-bottom: 30px;
+}
+.field {
+	margin-bottom: 20px;
+	margin-top: 20px;
+}
+.form-container select {
+	margin-bottom: 20px;
+}
+.form-container h4 {
+	border-bottom: 1px solid #494C5D;
+	margin-top: 20px;
+}
 /* ==========Entries Index ========== */
 #entries, .main-content {
 	background: white;
@@ -173,13 +246,36 @@ nav a, nav a:visited, .logo a, .logo a:visited {
 	height: 0;
 }
 
-i {
+i, #button1, #button2, #button3 {
 	cursor: pointer;
+}
+.pagination li {
+  display:inline-block;
+  padding:5px;
+}
+.flex {
+	display: flex;
+	align-items: center;
+}
+.text {
+	flex-grow: 2;
+}
+.circle-number {
+	border-radius: 50%;
+	height: 50px;
+	width: 50px;
+	background: #8DC05F;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: white;
+	margin-right: 20px;
 }
 
 /* ==========Entries Show ========== */
 .entry-description ul {
 	list-style-type: none;
+	margin-left: -35px;
 }
 .flex-column {
 	display: flex;

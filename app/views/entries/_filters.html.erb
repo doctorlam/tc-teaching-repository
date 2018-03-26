@@ -1,5 +1,5 @@
     <div class="type-filter">
-      <div class="flex-container"><h3>Filter by Resource Topic</h3><i id="button1" class= "material-icons">add_circle_outline</i></div>
+      <div id="button1" class="flex-container"><h4>Filter by Resource Topic</h4><i class= "material-icons">add_circle_outline</i></div>
       <div class="filter-border"></div>
 
       <%= form_tag entries_path, method: 'get', class: "entries_search" do%>
@@ -15,7 +15,7 @@
   </div><!--/type-filter-->
 
       <div class="type-filter">
-      <div class="flex-container"><h3>Filter by Resource Type</h3><i id ="button2" class="material-icons">add_circle_outline</i></div>
+      <div id ="button2" class="flex-container"><h4>Filter by Resource Type</h4><i class="material-icons">add_circle_outline</i></div>
       <div class="filter-border"></div>
 
       <%= form_tag entries_path, method: 'get', class: "entries_search" do%>
@@ -31,7 +31,7 @@
       </div><!--/type-filter-->
 
       <div class="type-filter">
-      <div class="flex-container"><h3>Filter by Course Type</h3><i id ="button3" class="material-icons">add_circle_outline</i></div>
+      <div class="flex-container" id="button3"><h4>Filter by Course Type</h4><id class="material-icons">add_circle_outline</i></div>
       <div class="filter-border"></div>
       <%= form_tag entries_path, method: 'get', class: "entries_search" do%>
 <div id="wrapper3" class="closed">
@@ -39,7 +39,7 @@
         <label>
            <label><%= check_box_tag "by_level[]", "All Students" %>All Students
         </label> <br>
-
+        <label>
           <%= check_box_tag "by_level[]", "Graduate" %>Graduate
 
           </label> <br>

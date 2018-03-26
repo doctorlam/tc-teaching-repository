@@ -1,6 +1,7 @@
 class TopicsController < ApplicationController
   before_action :set_topic, only: [:show, :edit, :update, :destroy]
-
+before_action :authenticate_user!, only: [:new, :create, :edit, :update, :index]
+before_action :user_is_admin, only: [:new, :create, :edit, :update, :destroy, :index]
   # GET /topics
   # GET /topics.json
   def index
@@ -15,7 +16,7 @@ class TopicsController < ApplicationController
 
   # GET /topics/new
   def new
-    @topic = Topic.new
+    @topic = Topic.new(:user => @current_user)
   end
 
   # GET /topics/1/edit
@@ -26,6 +27,7 @@ class TopicsController < ApplicationController
   # POST /topics.json
   def create
     @topic = Topic.new(topic_params)
+    @topic.user_id = current_user.id
 
     respond_to do |format|
       if @topic.save
@@ -41,6 +43,8 @@ class TopicsController < ApplicationController
   # PATCH/PUT /topics/1
   # PATCH/PUT /topics/1.json
   def update
+    user = User.find_by_id(@topic.user_id)
+   topic = @topic
     respond_to do |format|
       if @topic.update(topic_params)
         format.html { redirect_to @topic, notice: 'Topic was successfully updated.' }
@@ -72,4 +76,9 @@ class TopicsController < ApplicationController
     def topic_params
       params.require(:topic).permit(:name)
     end
+    def user_is_admin
+    unless current_user == current_user.admin?
+      redirect_to(root_url, alert: "Sorry! You can't edit this resource since you're not an admin.") and return
+    end
+  end
 end

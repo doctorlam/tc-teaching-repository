@@ -1,6 +1,7 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: [:show, :edit, :update, :destroy]
-
+before_action :authenticate_user!, only: [:new, :create, :edit, :update, :index]
+before_action :user_is_admin, only: [:new, :create, :edit, :update, :destroy, :index]
   # GET /categories
   # GET /categories.json
   def index
@@ -14,7 +15,7 @@ class CategoriesController < ApplicationController
 
   # GET /categories/new
   def new
-    @category = Category.new
+    @category = Category.new(:user => @current_user)
   end
 
   # GET /categories/1/edit
@@ -25,6 +26,7 @@ class CategoriesController < ApplicationController
   # POST /categories.json
   def create
     @category = Category.new(category_params)
+    @category.user_id = current_user.id
 
     respond_to do |format|
       if @category.save
@@ -40,6 +42,8 @@ class CategoriesController < ApplicationController
   # PATCH/PUT /categories/1
   # PATCH/PUT /categories/1.json
   def update
+    user = User.find_by_id(@category.user_id)
+   category = @category
     respond_to do |format|
       if @category.update(category_params)
         format.html { redirect_to @category, notice: 'Category was successfully updated.' }
@@ -71,4 +75,9 @@ class CategoriesController < ApplicationController
     def category_params
       params.require(:category).permit(:name)
     end
+     def user_is_admin
+    unless current_user == current_user.admin?
+      redirect_to(root_url, alert: "Sorry! You can't edit this resource since you're not an admin.") and return
+    end
+  end
 end

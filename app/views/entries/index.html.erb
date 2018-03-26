@@ -3,7 +3,7 @@
 <div id="all-resources">
 <div class="row">
     <div class="col-md-4">
-       <input type="text" class="fuzzy-search form-control" placeholder="Search Resources" />
+       <input type="text" class="fuzzy-search form-control" placeholder="Search Resources" /><br>
       <div class="type-filter">
       <h3>Filter by Resource Topic</h3>
       <%= form_tag entries_path, method: 'get', class: "entries_search" do%>
@@ -46,7 +46,7 @@
 
       </div><!--/type-filter-->
       <br>
-      <%= link_to "Clear Filters", entries_path, class: 'btn btn-default' %>
+      <%= link_to "Clear Filters", entries_path, class: 'btn btn-primary' %>
     </div><!--/col-md-4-->
     
     <div class="col-md-8">

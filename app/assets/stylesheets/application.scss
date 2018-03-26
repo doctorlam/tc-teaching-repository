@@ -15,11 +15,50 @@
  */
 @import "bootstrap";
 
+/* ==========Typography ========== */
+
+@import url('https://fonts.googleapis.com/css?family=Fjalla+One');
+@import url('https://fonts.googleapis.com/css?family=Cantarell:400,700');
+
+p, li, label {
+	font-family: 'Cantarell', sans-serif;
+	font-size: 1rem;
+}
+h1 {
+	font-family: 'Fjalla One', sans-serif;
+	font-size: 2.5rem;
+}
+h2 {
+	font-family: 'Fjalla One', sans-serif;
+	font-size: 2rem;
+}
+h3 {
+	font-family: 'Fjalla One', sans-serif;
+	font-size: 1.75rem;
+}
+h4 {
+	font-family: 'Fjalla One', sans-serif;
+	font-size: 1.5rem;
+}
+
+.btn-primary {
+	background: #8EC05F;
+	color: white !important;
+	border: none !important;
+
+}
+
+body {
+	background: #F1F1F2;
+}
+
 header {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	height: 80px;
+	background: #2C6836;
+	padding: 10px;
 }
 
 nav ul {
@@ -29,15 +68,46 @@ nav li {
 	display: inline;
 	margin-left: 30px;
 }
+nav a, nav a:visited, .logo a, .logo a:visited {
+	color: white;
+
+}
 .form-container {
 	width: 500px;
 	margin: 0 auto;
 }
+
+/* ==========Entries Index ========== */
+#entries {
+	background: white;
+	border-radius: 5px;
+	padding:10px;
+}
+#entries h1 {
+	text-align: center;
+}
 .resource-box {
 	border-bottom: 1px solid gray;
 	padding-bottom: 10px;
+	padding: 20px;
 }
 .resource-box ul {
 	list-style-type:none;
 	margin-left: -35px;
+}
+
+/* ==========Filters on Entries Index ========== */
+
+.type-filter input {
+	margin-right: 5px;
+	border-radius: 5px;
+}
+.type-filter h3 {
+	color: #484E5F;
+	border-bottom: 1px solid #484E5F;
+	padding-bottom: 3px;
+}
+.type-filter label {
+	cursor: pointer;
+	color: #0984e3;
 }

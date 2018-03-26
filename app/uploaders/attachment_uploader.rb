@@ -10,3 +10,4 @@ class AttachmentUploader < CarrierWave::Uploader::Base
     ['application/text', 'application/json']
   end
 
+end

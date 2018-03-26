@@ -2,24 +2,28 @@
 <p id="notice"><%= notice %></p>
 <div class="row">
     <div class="col-md-4">
-    <h2>Download Resource</h2>
-    <div class="border-bottom"></div>
+      <div class="flex-column">
+      <h2>Download Resource</h2>
+      <div class="border-bottom"></div>
 
-      <p style="width: 80%"><i class="material-icons">attach_file</i><%= link_to @entry.attachment.file.filename, @entry.attachment_url if @entry.attachment? %></p>
+        <p style="width: 80%"><i class="material-icons">attach_file</i><%= link_to @entry.attachment.file.filename, @entry.attachment_url if @entry.attachment? %></p>
+        <%= link_to '<< Back to all resources', entries_path, class:'back' %>
+      </div>
 
     </div><!--/col-md-4-->
     <div class="col-md-8">
-      <div class="main-content">
+      <div class="main-content entry-description">
 
       <h2><%= @entry.title %></h2> <div class="links">
         <%= link_to 'Edit', edit_entry_path(@entry) %> |
-        <%= link_to 'Back', entries_path %>
       </div>
       <div class="border-bottom"></div>
-        <p><strong>Resource Description</strong><br><%= @entry.description %></p>
-        <p><strong>Topic</strong>: <%= @entry.topic && @entry.topic.name %></p>
-        <p><strong>Resource Type</strong>: <%= @entry.category && @entry.category.name %></p>
-        <p><strong>Course Type</strong>: <%= @entry.level %></p>
+      <p><strong>Resource Description</strong><br><%= @entry.description %></p>
+        <ul>
+          <li><strong>Topic</strong>: <%= @entry.topic && @entry.topic.name %></li>
+          <li><strong>Resource Type</strong>: <%= @entry.category && @entry.category.name %></li>
+          <li><strong>Course Type</strong>: <%= @entry.level %></li>
+      </ul>
       </div><!--/main-content-->
       </div><!--/col-md-8-->
   </div><!--/row-->

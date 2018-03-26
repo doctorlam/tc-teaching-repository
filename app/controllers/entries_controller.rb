@@ -9,7 +9,7 @@ class EntriesController < ApplicationController
   # GET /entries
   # GET /entries.json
   def index
-    @entries = apply_scopes(Entry).all
+    @entries = apply_scopes(Entry.paginate(:page => params[:page], :per_page => 10).order(:created_at => 'DESC'))
 
   end
 

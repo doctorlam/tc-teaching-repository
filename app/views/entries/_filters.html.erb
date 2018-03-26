@@ -1,4 +1,3 @@
-<input type="text" class="fuzzy-search form-control" placeholder="Search Resources" /><br>
     <div class="type-filter">
       <div class="flex-container"><h3>Filter by Resource Topic</h3><i id="button1" class= "material-icons">add_circle_outline</i></div>
       <div class="filter-border"></div>
@@ -7,7 +6,7 @@
     <div id="wrapper1" class="closed">
       <div id ="filter1">
 
-        <% @topics.each do |topic| %>
+        <% @topics.order(:name).each do |topic| %>
         <label><%= check_box_tag "by_topic[]", topic.id %><%= topic.name %></label><br>
               <% end %>
         <% end %>
@@ -22,7 +21,7 @@
       <%= form_tag entries_path, method: 'get', class: "entries_search" do%>
 <div id="wrapper2" class="closed">
       <div id="filter2">
-        <% @categories.each do |category| %>
+        <% @categories.order(:name).each do |category| %>
         <label><%= check_box_tag "by_category[]", category.id %><%= category.name %></label><br>
               <% end %>
 
@@ -38,15 +37,16 @@
 <div id="wrapper3" class="closed">
       <div id ="filter3">
         <label>
+           <label><%= check_box_tag "by_level[]", "All Students" %>All Students
+        </label> <br>
+
           <%= check_box_tag "by_level[]", "Graduate" %>Graduate
 
           </label> <br>
         <label><%= check_box_tag "by_level[]", "Undergraduate" %>Undergraduate
         </label><br>
-        <label><%= check_box_tag "by_level[]", "All Students" %>All Students
-        </label>
+      
 
-        <br>
 
               <% end %>
         </div><!--/list-->

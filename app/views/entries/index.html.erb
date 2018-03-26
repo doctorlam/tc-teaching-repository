@@ -3,11 +3,16 @@
 <div id="all-resources">
 <div class="row">
     <div class="col-md-4">
+      <input type="text" class="fuzzy-search form-control" placeholder="Search Resources" /><br>
        <%= render 'filters' %>
     </div><!--/col-md-4-->
     
     <div class="col-md-8">
-<div id="entries"><%= render 'entries' %></div>
+          <h1>Tech Comm Resources</h1>
+
+          <div id="entries"><%= render 'entries' %></div>
+          <%= will_paginate @entries %>
+
     </div>
   </div><!--/row-->
 </div><!--/container-->

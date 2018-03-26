@@ -1,19 +1,18 @@
 
-    <h1>Tech Comm Resources</h1>
       <div class="list">
 
         <% @entries.each do |entry| %>
         <div class="resource-box">
               <ul>
-                <li class="name"><h3><%= entry.title %></h3></li>
+                <li class="name"><h3><%= link_to entry.title, entry %></h3></li>
                 <li class="topic">
-                  <strong>Topic</strong>: <%= entry.topic && entry.topic.name %>
+                  Topic: <%= entry.topic && entry.topic.name %>
                 </li>
-                 <li class="type">
-                  <strong>Resource Type</strong>: <%= link_to Category.find(entry.category_id).name, category_path(entry.category_id) %>
+                 <li>
+                  Resource Type: <%= link_to Category.find(entry.category_id).name, category_path(entry.category_id) %> 
                 </li>
                  <li class="level">
-                  <strong>Course type:</strong>: <%= entry.level %>
+                  Course type: <%= entry.level %>
                 </li>
                 <br>
                 <li>

@@ -8,5 +8,4 @@ class Entry < ApplicationRecord
 	   
 	   scope :by_level, -> level { where(:level => level) }
 
-
 end

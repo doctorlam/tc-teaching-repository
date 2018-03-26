@@ -1,5 +1,5 @@
 class AttachmentUploader < CarrierWave::Uploader::Base
- 	storage :fog
+ 	storage :file
  
 
   def store_dir

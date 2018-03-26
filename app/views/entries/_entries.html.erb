@@ -5,15 +5,20 @@
         <% @entries.each do |entry| %>
         <div class="resource-box">
               <ul>
-                <li class="name"><h2><%= entry.title %></h2></li>
+                <li class="name"><h3><%= entry.title %></h3></li>
                 <li class="topic">
-                  Topic: <%= entry.topic && entry.topic.name %>
+                  <strong>Topic</strong>: <%= entry.topic && entry.topic.name %>
                 </li>
                  <li class="type">
-                  Resource Type: <%= link_to Category.find(entry.category_id).name, category_path(entry.category_id) %>
+                  <strong>Resource Type</strong>: <%= link_to Category.find(entry.category_id).name, category_path(entry.category_id) %>
                 </li>
                  <li class="level">
-                  Student: <%= entry.level %>
+                  <strong>Course type:</strong>: <%= entry.level %>
+                </li>
+                <br>
+                <li>
+                  <i class="material-icons">attach_file</i>
+                   <%= link_to entry.attachment.file.filename, entry.attachment_url if entry.attachment? %>
                 </li>
               </ul>
               <td><%= link_to 'Show', entry %></td> | 

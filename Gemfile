@@ -21,6 +21,7 @@ gem 'has_scope'
 gem 'listjs-rails'
 gem 'fog-aws'
 gem 'will_paginate', '~> 3.1.0'
+gem 'devise'
 
 group :production do
   gem 'pg'

@@ -1,6 +1,8 @@
 class EntriesController < ApplicationController
   before_action :set_entry, only: [:show, :edit, :update, :destroy]
   before_action :set_variables, only: [:new, :create, :show, :edit, :update, :index]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update]
+  before_action :user_is_current_user, only: [:edit, :update, :destroy]
   has_scope :by_category, type: :array
   has_scope :by_level, type: :array
   has_scope :by_topic, type: :array
@@ -22,8 +24,7 @@ class EntriesController < ApplicationController
 
   # GET /entries/new
   def new
-   
-    @entry = Entry.new 
+    @entry = Entry.new(:user => @current_user)
   end
 
   # GET /entries/1/edit
@@ -34,8 +35,9 @@ class EntriesController < ApplicationController
   # POST /entries
   # POST /entries.json
   def create
-    
+
     @entry = Entry.new(entry_params)
+    @entry.user_id = current_user.id
 
     respond_to do |format|
       if @entry.save
@@ -53,7 +55,8 @@ class EntriesController < ApplicationController
   # PATCH/PUT /entries/1
   # PATCH/PUT /entries/1.json
   def update
-   
+   user = User.find_by_id(@entry.user_id)
+   entry = @entry
     respond_to do |format|
       if @entry.update(entry_params)
         format.html { redirect_to @entry, notice: 'Entry was successfully updated.' }
@@ -89,6 +92,11 @@ class EntriesController < ApplicationController
     
     # Never trust parameters from the scary internet, only allow the white list through.
     def entry_params
-      params.require(:entry).permit(:description, :category_id, :title, :entry_type,:entry_type_other, :genre, :level, :course,  :attachment, :remove_attachment, :topic_id)
+      params.require(:entry).permit(:description, :category_id, :title, :entry_type,:entry_type_other, :genre, :level, :course,  :attachment, :remove_attachment, :topic_id, :user, :user_id)
     end
+    def user_is_current_user
+    unless current_user == @entry.user 
+      redirect_to(root_url, alert: "Sorry! You can't edit this resource since you didn't create it.") and return
+    end
+  end
 end

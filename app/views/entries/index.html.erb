@@ -3,50 +3,7 @@
 <div id="all-resources">
 <div class="row">
     <div class="col-md-4">
-       <input type="text" class="fuzzy-search form-control" placeholder="Search Resources" /><br>
-      <div class="type-filter">
-      <h3>Filter by Resource Topic</h3>
-      <%= form_tag entries_path, method: 'get', class: "entries_search" do%>
-
-        <% @topics.each do |topic| %>
-        <label><%= check_box_tag "by_topic[]", topic.id %><%= topic.name %></label><br>
-              <% end %>
-        <% end %>
-
-      </div><!--/type-filter-->
-
-      <div class="type-filter">
-      <h3>Filter by Resource Type</h3>
-      <%= form_tag entries_path, method: 'get', class: "entries_search" do%>
-
-        <% @categories.each do |category| %>
-        <label><%= check_box_tag "by_category[]", category.id %><%= category.name %></label><br>
-              <% end %>
-
-              <% end %>
-
-      </div><!--/type-filter-->
-
-      <div class="type-filter">
-      <h3>Filter by Course Type</h3>
-      <%= form_tag entries_path, method: 'get', class: "entries_search" do%>
-
-        <label>
-          <%= check_box_tag "by_level[]", "Graduate" %>Graduate
-
-          </label> <br>
-        <label><%= check_box_tag "by_level[]", "Undergraduate" %>Undergraduate
-        </label><br>
-        <label><%= check_box_tag "by_level[]", "All Students" %>All Students
-        </label>
-
-        <br>
-
-              <% end %>
-
-      </div><!--/type-filter-->
-      <br>
-      <%= link_to "Clear Filters", entries_path, class: 'btn btn-primary' %>
+       <%= render 'filters' %>
     </div><!--/col-md-4-->
     
     <div class="col-md-8">

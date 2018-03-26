@@ -104,10 +104,41 @@ nav a, nav a:visited, .logo a, .logo a:visited {
 }
 .type-filter h3 {
 	color: #484E5F;
-	border-bottom: 1px solid #484E5F;
 	padding-bottom: 3px;
 }
 .type-filter label {
 	cursor: pointer;
 	color: #0984e3;
+}
+.plus {
+	border: 1px dotted #DEDDDF;
+  width: 3px;
+  height: 3px;
+  background-color: black;
+  box-sizing: border-box;
+  transform: scale(11);
+}
+.flex-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 10px;
+}
+.filter-border {
+	border-bottom: 1px solid #484E5F;
+	margin-bottom: 10px;
+}
+#wrapper {
+  overflow: hidden;
+  transition: height 200ms;
+}
+.closed {
+	visibility: hidden;
+	height: 0;
+}
+.open {
+	min-height: auto !important;
+}
+i {
+	cursor: pointer;
 }

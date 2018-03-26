@@ -1,0 +1,108 @@
+<input type="text" class="fuzzy-search form-control" placeholder="Search Resources" /><br>
+    <div class="type-filter">
+      <div class="flex-container"><h3>Filter by Resource Topic</h3><i id="button1" class= "material-icons">add_circle_outline</i></div>
+      <div class="filter-border"></div>
+
+      <%= form_tag entries_path, method: 'get', class: "entries_search" do%>
+    <div id="wrapper1" class="closed">
+      <div id ="filter1">
+
+        <% @topics.each do |topic| %>
+        <label><%= check_box_tag "by_topic[]", topic.id %><%= topic.name %></label><br>
+              <% end %>
+        <% end %>
+      </div><!--/list-->
+    </div><!--/wrapper-->
+  </div><!--/type-filter-->
+
+      <div class="type-filter">
+      <div class="flex-container"><h3>Filter by Resource Type</h3><i id ="button2" class="material-icons">add_circle_outline</i></div>
+      <div class="filter-border"></div>
+
+      <%= form_tag entries_path, method: 'get', class: "entries_search" do%>
+<div id="wrapper2" class="closed">
+      <div id="filter2">
+        <% @categories.each do |category| %>
+        <label><%= check_box_tag "by_category[]", category.id %><%= category.name %></label><br>
+              <% end %>
+
+              <% end %>
+          </div><!--/list-->
+        </div><!--/wrapper-->
+      </div><!--/type-filter-->
+
+      <div class="type-filter">
+      <div class="flex-container"><h3>Filter by Course Type</h3><i id ="button3" class="material-icons">add_circle_outline</i></div>
+      <div class="filter-border"></div>
+      <%= form_tag entries_path, method: 'get', class: "entries_search" do%>
+<div id="wrapper3" class="closed">
+      <div id ="filter3">
+        <label>
+          <%= check_box_tag "by_level[]", "Graduate" %>Graduate
+
+          </label> <br>
+        <label><%= check_box_tag "by_level[]", "Undergraduate" %>Undergraduate
+        </label><br>
+        <label><%= check_box_tag "by_level[]", "All Students" %>All Students
+        </label>
+
+        <br>
+
+              <% end %>
+        </div><!--/list-->
+      </div><!--/wrapper -->
+
+      </div><!--/type-filter-->
+      <br>
+      <%= link_to "Clear Filters", entries_path, class: 'btn btn-primary' %>
+<script type="text/javascript">
+$(function() {
+  var b1 = $("#button1");
+  var b2 = $("#button2");
+  var b3 = $("#button3");
+  var w1 = $("#wrapper1");
+  var l1 = $("#filter1");
+  var w2 = $("#wrapper2");
+  var l2 = $("#filter2");
+  var w3 = $("#wrapper3");
+  var l3 = $("#filter3");
+  
+  b1.click(function() {
+
+
+    if(w1.hasClass('closed')) {
+      w1.removeClass('closed');
+      w1.height(l1.outerHeight(true));
+     
+    } else {
+      w1.addClass('closed');
+      w1.height(0);
+    }
+  
+  });
+  b2.click(function() {
+  
+    if(w2.hasClass('closed')) {
+      w2.removeClass('closed');
+      w2.height(l2.outerHeight(true));
+     
+    } else {
+      w2.addClass('closed');
+      w2.height(0);
+    }
+  
+  });
+  b3.click(function() {
+  
+    if(w3.hasClass('closed')) {
+      w3.removeClass('closed');
+      w3.height(l3.outerHeight(true));
+     
+    } else {
+      w3.addClass('closed');
+      w3.height(0);
+    }
+  
+  });
+});
+</script>

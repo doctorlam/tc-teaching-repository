@@ -1,4 +1,4 @@
-  
+
     <h1>Tech Comm Resources</h1>
    <table class="table table-striped">
       <thead>
@@ -16,8 +16,8 @@
           <tr>
             <td class="name"><%= entry.title %></td>
             <td class="topic"><%= entry.topic && entry.topic.name %></td>
-            <td><%= link_to Category.find(entry.category_id).name, category_path(entry.category_id) %></td>
-            <td><%= entry.level %></td>
+            <td class="type"><%= link_to Category.find(entry.category_id).name, category_path(entry.category_id) %></td>
+            <td class="level"><%= entry.level %></td>
             <td><%= link_to 'Show', entry %></td>
             <td><%= link_to 'Edit', edit_entry_path(entry) %></td>
             <td><%= link_to 'Destroy', entry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -26,5 +26,4 @@
       </tbody>
     </table>
     <br>
-
     <%= link_to 'New Entry', new_entry_path, class: 'btn btn-primary' %>

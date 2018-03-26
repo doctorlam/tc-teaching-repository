@@ -1,8 +1,9 @@
 <div class="container-fluid">
 <p id="notice"><%= notice %></p>
+<div id="all-resources">
 <div class="row">
     <div class="col-md-4">
-     
+       <input type="text" class="fuzzy-search form-control" placeholder="Search Resources" />
       <div class="type-filter">
       <h3>Filter by Resource Topic</h3>
       <%= form_tag entries_path, method: 'get', class: "entries_search" do%>
@@ -36,6 +37,8 @@
 
           </label> <br>
         <label><%= check_box_tag "by_level[]", "Undergraduate" %>Undergraduate
+        </label><br>
+        <label><%= check_box_tag "by_level[]", "All Students" %>All Students
         </label>
 
         <br>
@@ -48,10 +51,11 @@
     </div><!--/col-md-4-->
     
     <div class="col-md-8">
-      <div id="entries"><%= render 'entries' %></div>
+<div id="entries"><%= render 'entries' %></div>
     </div>
   </div><!--/row-->
 </div><!--/container-->
+</div><!--/test-list-->
 <script type = "text/javascript">
 $(function () {
   $('input[type=checkbox]').change(function(){
@@ -67,3 +71,9 @@ $(function () {
   });
 });
 </script> 
+<script type = "text/javascript">
+var monkeyList = new List('all-resources', { 
+  valueNames: ['name', 'topic', 'type', 'level']
+
+});
+</script>

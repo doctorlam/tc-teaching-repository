@@ -22,16 +22,14 @@
   </div>
 
   <h2>What's it about?</h2>
-<%= form.collection_select :topic_id, @topics, :id, :name, :prompt => true %>
+<%= form.collection_select :topic_id, @topics, :id, :name, :include_blank => 'Select an option' %>
 
  <h2>What kind of resource is it?</h2>
-  <%= form.label :category_id %>
-  <%= form.collection_select :category_id, Category.all, :id, :name %>
-
+  <%= form.collection_select :category_id, Category.all, :id, :name, :include_blank => 'Select an option' %>
 
   <div class="field">
     <h2><%= form.label :level, "Who's it for?" %></h2>
-   <%= form.select(:level, [ "Undergraduate", "Graduate", "All Students"], id: "entry", :include_blank => 'Please select') %>
+   <%= form.select(:level, [ "Undergraduate", "Graduate", "All Students"], id: "entry", :include_blank => 'Select an option') %>
   </div>
 
   <div class="form-field">

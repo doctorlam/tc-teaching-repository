@@ -36,7 +36,7 @@
   <div class="circle-number">3</div>
   <div class="text">
   <h4>What's it about?</h4>
-      <%= form.collection_select :topic_id, @topics, :id, :name, :include_blank => 'Select an option' %>
+      <%= form.collection_select :topic_id, Topic.order('name ASC'), :id, :name, :include_blank => 'Select an option' %>
   </div>
 
 </div><!--/flex-->
@@ -45,7 +45,7 @@
 
     <div class="text">
           <h4>What kind of resource is it?</h4>
-      <%= form.collection_select :category_id, Category.all, :id, :name, :include_blank => 'Select an option', class: 'form-control' %>
+      <%= form.collection_select :category_id, Category.order('name ASC'), :id, :name, :include_blank => 'Select an option', class: 'form-control' %>
     </div>
 </div>
   <div class="field">

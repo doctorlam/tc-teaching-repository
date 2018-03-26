@@ -1,7 +1,7 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: [:show, :edit, :update, :destroy]
 before_action :authenticate_user!, only: [:new, :create, :edit, :update, :index]
-before_action :user_is_admin, only: [:new, :create, :edit, :update, :destroy, :index]
+  before_action :user_is_current_user, only: [:new, :create, :edit, :update, :destroy]
   # GET /categories
   # GET /categories.json
   def index
@@ -73,11 +73,11 @@ before_action :user_is_admin, only: [:new, :create, :edit, :update, :destroy, :i
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def category_params
-      params.require(:category).permit(:name)
+      params.require(:category).permit(:name, :user_id)
     end
-     def user_is_admin
-    unless current_user == current_user.admin?
-      redirect_to(root_url, alert: "Sorry! You can't edit this resource since you're not an admin.") and return
+    def user_is_current_user
+    unless current_user.admin?
+      redirect_to(root_url, alert: "Sorry! You can't edit this resource since you didn't create it.") and return
     end
   end
 end

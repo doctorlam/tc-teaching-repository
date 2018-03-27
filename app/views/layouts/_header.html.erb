@@ -8,13 +8,8 @@
 			<li>A resource for technical communication instructors</li>
 		</ul>
 	</div>
-	<nav>
-     
-       <!-- Collect the nav links, forms, and other content for toggling -->
-	
-	
-			<% if user_signed_in? %>
-
+<% if user_signed_in? %>
+	<nav class="signed-in">
 			<ul>
 		<% if user_signed_in? && current_user.admin? %>
 
@@ -27,12 +22,12 @@
 				<li><%= link_to "Sign Out", destroy_user_session_path,  method: :delete  %></li>
 				</ul>
 			<p class="signed-in">Signed in as: <%= current_user.email %></p>
+	</nav>
 			<% else %>
+			<nav class="signed-out">
 				<li><%= link_to "Sign In", new_user_session_path %></li>
 				<li><%= link_to "Register", new_user_registration_path%></li>
-
+			</nav>
 			<% end %>
-		</ul>
-	</nav>
-</div><!--/navbar collapse -->
+	
 </header>

@@ -9,8 +9,9 @@
     
     <div class="col-md-8">
           <h1>Tech Comm Resources</h1>
-          <ul class="pagination"></ul>
-
+         <div class="running"># of Entries matching criteria ( <p id="running-total"></p> )</div>
+         Page: <ul class="pagination"></ul>
+         <p class="counter"></p>
           <div id="entries"><%= render 'entries' %></div>
 
     </div>
@@ -40,3 +41,4 @@ var userList = new List('all-resources', {
 
 });
 </script>
+

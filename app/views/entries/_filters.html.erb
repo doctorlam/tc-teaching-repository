@@ -9,6 +9,7 @@
         <% @topics.order(:name).each do |topic| %>
         <label><%= check_box_tag "by_topic[]", topic.id %><%= topic.name %></label><br>
               <% end %>
+            
         <% end %>
       </div><!--/list-->
     </div><!--/wrapper-->

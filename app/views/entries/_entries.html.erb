@@ -1,6 +1,5 @@
 
       <div class="list">
-
         <% @entries.each do |entry| %>
         <div class="resource-box">
               <ul>
@@ -8,7 +7,7 @@
                 <li class="topic">
                   Topic: <%= entry.topic && entry.topic.name %>
                 </li>
-                 <li>
+                 <li class="type">
                   Resource Type: <%= link_to Category.find(entry.category_id).name, category_path(entry.category_id) %> 
                 </li>
                  <li class="level">

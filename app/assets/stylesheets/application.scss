@@ -108,7 +108,7 @@ nav li {
 	display: inline;
 	margin-left: 30px;
 	color: white;
-	font-size: .9rem !important;
+	font-size: 1rem !important;
 }
 nav a, nav a:visited, .logo a, .logo a:visited {
 	color: white;
@@ -122,14 +122,17 @@ nav a, nav a:visited, .logo a, .logo a:visited {
 .circle {
 	position: relative;
 	border: 1px solid white;
-	width: 80px;
-	height: 80px;
+	width: 100px;
+	height: 100px;
 	margin-left: 40px;
 	display:flex;
 justify-content:center;
 align-items:center;
 	margin-top: 12px;
 	margin-bottom: 12px;
+	font-size: 1rem;
+	font-family: 'Fjalla One';
+	font-size: 1.3rem;
 
 }
 .logo h2 {
@@ -150,7 +153,112 @@ align-items:center;
 .logo li {
 	font-size: .9rem;
 }
+/* ==========LANDING PAGE STYLES ========== */
 
+.hero {
+	display: flex;
+	background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
+	background-color: whitesmoke;
+	padding-bottom: 20px;
+	padding-top: 50px;
+}
+.tagline {
+	flex: 1;
+	height: 600px;
+}
+.tagline-container {
+	width: 85%; 
+	margin: 0 auto;
+	min-height: 500px;
+	display: flex;
+	flex-direction: column;
+justify-content: space-between;
+}
+.tagline h1 {
+	font-family: 'Fjalla One', serif;
+	font-size: 3rem;
+	font-weight: 700;
+	color: #7C9885;
+}
+.tagline h2 {
+	font-family: 'Cantarell', sans-serif;
+	font-size: 1.15rem;
+	color: #283F3B;
+	font-weight: normal;
+
+}
+.hero-overlay {
+	height: 600px;
+	background: rgba(141, 192, 95, 0.8);
+	position: relative;
+	
+}
+.hero-image-right {
+	background: url(hero-tcr.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+	height: 550px;
+	flex: 1;
+	padding-right: 50px;
+	margin-right: 50px;
+}
+.landing-links {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+
+}
+.btn-landing {
+	background: #98BE6A;
+	color: white !important;
+	padding: 10px;
+	width: 150px !important;
+	text-align: center;
+	font-size: 1.5rem;
+	border-radius: 5px;
+	margin-right: 10px;
+}
+.btn-landing:hover {
+	background: transparent;
+	border: 2px solid #98BE6A;
+	color: gray !important;
+	text-decoration: none;
+	 -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  /* ...and now for the proper property */
+  transition:.5s;
+}
+.btn-landing-reverse {
+	background: transparent;
+	border: 2px solid #98BE6A;
+	color: gray;
+	padding: 10px;
+	width: 150px;
+	margin-left: 10px;
+	border-radius: 5px;
+	text-align: center;
+	font-size: 1.5rem;
+}
+.btn-landing-reverse:hover {
+	background: #98BE6A !important;
+	color: white !important;
+	text-decoration: none;
+	 -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  /* ...and now for the proper property */
+  transition:.5s;
+}
+.explore {
+	font-size: 1.5rem;
+}
+.explore a {
+	color: #9FBD73;
+}
 /* ==========DEVISE VIEWS ======== */
 .form-container {
 	width: 500px;
@@ -285,4 +393,36 @@ i, #button1, #button2, #button3 {
 .back {
 	color: #7AAE58;
 	
+}
+
+/* =========footer============ */
+.footer {
+	height: 400px;
+	background: #343334;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+.footer ul {
+	list-style-type: none;
+	
+}
+.footer li {
+	display: inline;
+	margin-left: 10px;
+	margin-right: 10px;
+	color: #939293;
+}
+.footer p {
+	color: #939293;
+}
+.contact-info {
+	float: left;
+}
+.social-icons {
+	float: right;	
+}
+.social-icons img {
+	width: 32px;
 }

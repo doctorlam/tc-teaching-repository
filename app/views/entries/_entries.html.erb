@@ -19,13 +19,14 @@
                    <%= link_to entry.attachment.file.filename, entry.attachment_url if entry.attachment? %>
                 </li>
               </ul>
-              <td><%= link_to 'View Resource', entry %></td> <% if current_user.try(:admin) or current_user = entry.user %> | 
+              <td><%= link_to 'View Resource', entry %></td> <% if current_user.try(:admin) or current_user == entry.user %> | 
           
             <td><%= link_to 'Edit', edit_entry_path(entry) %></td> |
             <td><%= link_to 'Destroy', entry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           <% end %>
-          </div>
+              <p class="contributor">Contributed by: <%= entry.user.email %>
+          </div><!--/resource-box-->
         <% end %>
-      </div><!--/resource-box-->
+      </div><!--/list-->
 
     <br>

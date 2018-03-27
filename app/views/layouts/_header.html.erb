@@ -9,22 +9,24 @@
 		</ul>
 	</div>
 	<nav>
-  	<% if user_signed_in? && current_user.admin? %>
-		<ul>
-			<li><%= link_to "Resource Types", categories_path %></li>
-			<li><%= link_to "Topics", topics_path %></li>
-		</ul>
-	<% end %>
+     
+       <!-- Collect the nav links, forms, and other content for toggling -->
+	
 	
 			<% if user_signed_in? %>
+
 			<ul>
-				<li>Signed in as: <%= current_user.email %></li>
+		<% if user_signed_in? && current_user.admin? %>
+
+			<li><%= link_to "Resource Types", categories_path %></li>
+			<li><%= link_to "Topics", topics_path %></li>
+		<% end %>
+
+				<li><%= link_to 'All Resources', entries_path %>
+					<li><%= link_to 'Create Resource', new_entry_path, class: 'btn btn-primary' %></li>
 				<li><%= link_to "Sign Out", destroy_user_session_path,  method: :delete  %></li>
 				</ul>
-			<ul>
-				<li><%= link_to 'Create Resource', new_entry_path, class: 'btn btn-primary' %></li>
-			</ul>
-
+			<p class="signed-in">Signed in as: <%= current_user.email %></p>
 			<% else %>
 				<li><%= link_to "Sign In", new_user_session_path %></li>
 				<li><%= link_to "Register", new_user_registration_path%></li>
@@ -32,5 +34,5 @@
 			<% end %>
 		</ul>
 	</nav>
-
+</div><!--/navbar collapse -->
 </header>

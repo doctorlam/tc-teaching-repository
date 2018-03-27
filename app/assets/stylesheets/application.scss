@@ -87,6 +87,12 @@ h4 {
 header .btn-primary:hover {
 	color: white !important;
 }
+.btn-reverse {
+	border: 2px solid #8EC05F;
+	color: white;
+	padding: 5px 12px 10px 12px;
+	border-radius: 5px;
+}
 body {
 	background: #F1F1F2;
 	color: #494D5E;
@@ -101,6 +107,10 @@ header {
 	padding: 10px;
 }
 
+nav {
+	align-self: flex-end;
+	margin-right: 10px;
+}
 nav ul {
 	list-style-type: none;
 }
@@ -113,6 +123,11 @@ nav li {
 nav a, nav a:visited, .logo a, .logo a:visited {
 	color: white;
 
+}
+p.signed-in {
+	color: white;
+	font-size: .8rem;
+	text-align: right;
 }
 .logo {
 	display: flex;
@@ -405,6 +420,7 @@ p.contributor {
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+	flex: 1;
 }
 .footer ul {
 	list-style-type: none;
@@ -427,4 +443,9 @@ p.contributor {
 }
 .social-icons img {
 	width: 32px;
+}
+
+.Site {display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }

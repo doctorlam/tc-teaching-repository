@@ -4,11 +4,11 @@
         <div class="resource-box">
               <ul>
                 <li class="name"><h3><%= link_to entry.title, entry %></h3></li>
-                <li class="topic">
-                  Topic: <%= entry.topic && entry.topic.name %>
+                <li>
+                  Topic: <strong class="topic"><%= entry.topic && entry.topic.name %></strong>
                 </li>
-                 <li class="type">
-                  Resource Type: <%= link_to Category.find(entry.category_id).name, category_path(entry.category_id) %> 
+                 <li>
+                  Resource Type: <strong class="type"><%= entry.category && entry.category.name %></strong>
                 </li>
                  <li class="level">
                   Course type: <%= entry.level %>

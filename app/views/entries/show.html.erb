@@ -11,10 +11,13 @@
           <p class="contributor">Contributed by: <%= @entry.user.email %>
       </div>
       <div class="border-bottom"></div>
-      <p><strong>Resource Description</strong><br><%= @entry.description %></p>
+      <div class="description">
+        <strong>Resource Description</strong>
+        <%= simple_format @entry.description.html_safe %>
+      </div><!--/description-->
         <ul>
-          <li><strong>Topic</strong>:<% for @topic in @entry.topics %><%= @topic.name %>, <% end %></li>
-          <li><strong>Resource Type</strong>: <%= @entry.category && @entry.category.name %></li>
+          <li><strong>Topic</strong>:<% for @topic in @entry.topics %><%= @topic.name %> | <% end %></li>
+          <li><strong>Resource Type</strong>: <% for @category in @entry.categories %><%= @category.name %> | <% end %></li>
           <li><strong>Course Type</strong>: <%= @entry.level %></li>
       </ul>
       </div><!--/main-content-->

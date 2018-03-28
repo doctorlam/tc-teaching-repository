@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180328011200) do
+ActiveRecord::Schema.define(version: 20180328141701) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -30,9 +30,13 @@ ActiveRecord::Schema.define(version: 20180328011200) do
     t.string "attachment"
     t.string "attachments"
     t.string "entry_type_other"
-    t.integer "category_id"
     t.text "description"
     t.integer "user_id"
+  end
+
+  create_table "entry_categories", force: :cascade do |t|
+    t.integer "entry_id"
+    t.integer "category_id"
   end
 
   create_table "entry_topics", force: :cascade do |t|

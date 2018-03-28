@@ -3,7 +3,7 @@ class EntriesController < ApplicationController
   before_action :set_variables, only: [:new, :create, :show, :edit, :update, :index]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update]
   before_action :user_is_current_user, only: [:edit, :update, :destroy]
-  has_scope :by_category, type: :array
+  has_scope :by_categories, type: :array
   has_scope :by_level, type: :array
   has_scope :by_topics, type: :array
 
@@ -25,7 +25,6 @@ class EntriesController < ApplicationController
   # GET /entries/new
   def new
     @entry = Entry.new(:user => @current_user)
-    @topics = Topic.order('name ASC')
   end
 
   # GET /entries/1/edit
@@ -93,7 +92,7 @@ class EntriesController < ApplicationController
     
     # Never trust parameters from the scary internet, only allow the white list through.
     def entry_params
-      params.require(:entry).permit({topic_ids: []}, :id, :description, :category_id, :title, :entry_type,:entry_type_other, :genre, :level, :course,  :attachment, :remove_attachment, :entry_id, :user, :user_id)
+      params.require(:entry).permit({topic_ids: []}, {category_ids: []},:description, :category_id, :title, :entry_type,:entry_type_other, :genre, :level, :course,  :attachment, :remove_attachment, :entry_id, :user, :user_id, :id)
     end
     def user_is_current_user
     unless current_user == @entry.user or current_user.admin?

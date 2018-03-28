@@ -427,6 +427,16 @@ i, #button1, #button2, #button3 {
 p.contributor {
 	font-size: .8rem;
 }
+.description {
+	margin-left: 20px;
+}
+.description ul {
+	list-style-type: circle !important;
+	margin-left: 0px !important;
+}
+.description li {
+	margin-bottom: 0px !important;
+}
 /* =========footer============ */
 .footer {
 	height: 400px;

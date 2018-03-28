@@ -23,7 +23,7 @@
 <div id="wrapper2" class="closed">
       <div id="filter2">
         <% @categories.order(:name).each do |category| %>
-        <label><%= check_box_tag "by_category[]", category.id %><%= category.name %></label><br>
+        <label><%= check_box_tag "by_categories[]", category.id %><%= category.name %></label><br>
               <% end %>
 
               <% end %>

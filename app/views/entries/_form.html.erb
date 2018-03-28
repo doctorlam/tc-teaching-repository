@@ -28,7 +28,8 @@
       <div class="circle-number">2</div>
       <div class="text">
         <h4>Briefly describe the resource</h4>
-        <%= form.text_area :description, class: 'form-control' %>
+         <%= form.text_area :description, :class => "tinymce form-control", :rows => 10 %>
+      <%= tinymce %>
       </div><!--/text-->
   </div><!--/flex-->
   </div>
@@ -51,7 +52,13 @@
 
     <div class="text">
           <h4>What kind of resource is it?</h4>
-      <%= form.collection_select :category_id, Category.order('name ASC'), :id, :name, :include_blank => 'Select an option', class: 'form-control' %>
+      <%= hidden_field_tag "entry[category_ids][]", nil %>
+        <% Category.order('name ASC').each do |category| %>
+          <%= check_box_tag "entry[category_ids][]", category.id, @entry.category_ids.include?(category.id), id: dom_id(category) %>
+          <%= label_tag dom_id(category), category.name %> 
+          <br />
+
+        <% end %>
     </div>
 </div>
   <div class="field">

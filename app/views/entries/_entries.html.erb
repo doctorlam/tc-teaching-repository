@@ -13,7 +13,10 @@
                   <% end %>
                 </li>
                  <li>
-                  Resource Type: <strong class="type"><%= entry.category && entry.category.name %></strong>
+                  Resource Type: 
+                  <% for category in entry.categories %>
+                  <strong class="type"><%= category.name %> | </strong>
+                  <% end %>
                 </li>
                  <li class="level">
                   Course type: <%= entry.level %>

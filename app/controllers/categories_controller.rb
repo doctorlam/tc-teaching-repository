@@ -73,7 +73,7 @@ before_action :authenticate_user!, only: [:new, :create, :edit, :update, :index]
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def category_params
-      params.require(:category).permit(:name, :user_id)
+      params.require(:category).permit({entry_ids: []}, :name, :user_id)
     end
     def user_is_current_user
     unless current_user.admin?

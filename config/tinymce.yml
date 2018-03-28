@@ -1,0 +1,7 @@
+menubar: false
+toolbar:
+  - image | link | bullist numlist
+plugins:
+  - image
+  - link
+  - lists

@@ -22,7 +22,7 @@ gem 'listjs-rails'
 gem 'fog-aws'
 gem 'will_paginate', '~> 3.1.0'
 gem 'devise'
-
+gem 'tinymce-rails'
 group :production do
   gem 'pg'
   gem 'rails_12factor'

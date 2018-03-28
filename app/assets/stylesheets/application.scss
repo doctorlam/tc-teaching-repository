@@ -413,7 +413,7 @@ i, #button1, #button2, #button3 {
 /* ==========Entries Show ========== */
 .entry-description ul {
 	list-style-type: none;
-	margin-left: -35px;
+	margin-left: -20px;
 }
 .flex-column {
 	display: flex;
@@ -423,6 +423,9 @@ i, #button1, #button2, #button3 {
 .back {
 	color: #7AAE58;
 	
+}
+.top-section {
+	margin-left: 20px;
 }
 p.contributor {
 	font-size: .8rem;
@@ -436,6 +439,16 @@ p.contributor {
 }
 .description li {
 	margin-bottom: 0px !important;
+}
+.show-content {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	min-height: 300px;
+
+}
+.description h4 {
+	margin-top: 10px;
 }
 /* =========footer============ */
 .footer {

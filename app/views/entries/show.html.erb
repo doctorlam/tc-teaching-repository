@@ -3,23 +3,28 @@
 <div class="row">
     <div class="col-md-8">
       <div class="main-content entry-description">
-
+    <div class="top-section">
       <h2><%= @entry.title %></h2> <div class="links">
           <% if @current_user = @entry.user or current_user.admin? %>
             <%= link_to 'Edit', edit_entry_path(@entry) %>
           <% end %>
-          <p class="contributor">Contributed by: <%= @entry.user.email %>
+          <p class="contributor">Contributed by: <%= @entry.user.email %></p>
       </div>
+    </div>
       <div class="border-bottom"></div>
+    <div class="show-content">
       <div class="description">
-        <strong>Resource Description</strong>
+        <h4>Resource Description</h4>
         <%= simple_format @entry.description.html_safe %>
       </div><!--/description-->
-        <ul>
-          <li><strong>Topic</strong>:<% for @topic in @entry.topics %><%= @topic.name %> | <% end %></li>
-          <li><strong>Resource Type</strong>: <% for @category in @entry.categories %><%= @category.name %> | <% end %></li>
-          <li><strong>Course Type</strong>: <%= @entry.level %></li>
-      </ul>
+        <div class="details">
+          <ul>
+            <li><strong>Topic</strong>:<% for @topic in @entry.topics %><%= @topic.name %> | <% end %></li>
+            <li><strong>Resource Type</strong>: <% for @category in @entry.categories %><%= @category.name %> | <% end %></li>
+            <li><strong>Course Type</strong>: <%= @entry.level %></li>
+        </ul>
+      </div><!--/details-->
+    </div><!--/show-content-->
       </div><!--/main-content-->
       </div><!--/col-md-8-->
 

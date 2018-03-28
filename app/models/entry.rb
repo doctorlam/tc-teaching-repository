@@ -6,7 +6,7 @@ class Entry < ApplicationRecord
 	  belongs_to :user
 	    scope :by_category, -> category { where(:category => category) }
 
-	     scope :by_topic, -> topic { where(:topic => topic) }
+scope :by_topics, ->(ids_ary) { joins(entry_topics: :topic).where("topics.id" => ids_ary) }
 	   
 	   scope :by_level, -> level { where(:level => level) }
 

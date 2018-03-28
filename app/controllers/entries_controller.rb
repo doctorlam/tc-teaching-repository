@@ -5,7 +5,7 @@ class EntriesController < ApplicationController
   before_action :user_is_current_user, only: [:edit, :update, :destroy]
   has_scope :by_category, type: :array
   has_scope :by_level, type: :array
-  has_scope :by_topic, type: :array
+  has_scope :by_topics, type: :array
 
 
   # GET /entries

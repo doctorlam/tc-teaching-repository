@@ -37,7 +37,7 @@
   <div class="text">
   <h4>What's it about?</h4>
       <%= hidden_field_tag "entry[topic_ids][]", nil %>
-        <% Topic.all.each do |topic| %>
+        <% Topic.order('name ASC').each do |topic| %>
           <%= check_box_tag "entry[topic_ids][]", topic.id, @entry.topic_ids.include?(topic.id), id: dom_id(topic) %>
           <%= label_tag dom_id(topic), topic.name %> 
           <br />

@@ -25,6 +25,7 @@ class EntriesController < ApplicationController
   # GET /entries/new
   def new
     @entry = Entry.new(:user => @current_user)
+    @topics = Topic.order('name ASC')
   end
 
   # GET /entries/1/edit

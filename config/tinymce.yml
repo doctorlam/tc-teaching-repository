@@ -1,7 +1,9 @@
 menubar: false
 toolbar:
-  - image | link | bullist numlist
+  - image | link | bullist numlist | media
 plugins:
   - image
   - link
   - lists
+  - media
+extended_valid_elements : "iframe[src|frameborder|style|scrolling|class|width|height|name|align]"

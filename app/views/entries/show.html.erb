@@ -5,7 +5,7 @@
       <div class="main-content entry-description">
     <div class="top-section">
       <h2><%= @entry.title %></h2> <div class="links">
-          <% if @current_user = @entry.user or current_user.admin? %>
+          <% if current_user.admin? or current_user == @entry.user %>
             <%= link_to 'Edit', edit_entry_path(@entry) %>
           <% end %>
           <p class="contributor">Contributed by: <%= @entry.user.email %></p>

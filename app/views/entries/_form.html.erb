@@ -36,7 +36,13 @@
   <div class="circle-number">3</div>
   <div class="text">
   <h4>What's it about?</h4>
-      <%= form.collection_select :topic_id, Topic.order('name ASC'), :id, :name, :include_blank => 'Select an option' %>
+      <%= hidden_field_tag "entry[topic_ids][]", nil %>
+        <% Topic.all.each do |topic| %>
+          <%= check_box_tag "entry[topic_ids][]", topic.id, @entry.topic_ids.include?(topic.id), id: dom_id(topic) %>
+          <%= label_tag dom_id(topic), topic.name %> 
+          <br />
+
+        <% end %>
   </div>
 
 </div><!--/flex-->

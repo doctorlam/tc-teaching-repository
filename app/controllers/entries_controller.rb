@@ -92,7 +92,7 @@ class EntriesController < ApplicationController
     
     # Never trust parameters from the scary internet, only allow the white list through.
     def entry_params
-      params.require(:entry).permit(:description, :category_id, :title, :entry_type,:entry_type_other, :genre, :level, :course,  :attachment, :remove_attachment, :topic_id, :user, :user_id)
+      params.require(:entry).permit({topic_ids: []}, :id, :description, :category_id, :title, :entry_type,:entry_type_other, :genre, :level, :course,  :attachment, :remove_attachment, :entry_id, :user, :user_id)
     end
     def user_is_current_user
     unless current_user == @entry.user or current_user.admin?

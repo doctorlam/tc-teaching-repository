@@ -5,7 +5,10 @@
               <ul>
                 <li class="name"><h3><%= link_to entry.title, entry %></h3></li>
                 <li>
-                  Topic: <strong class="topic"><%= entry.topic && entry.topic.name %></strong>
+                  Topic: <strong class="topic">
+                <% for topic in entry.topics %>
+
+                    <%= topic.name %>, <% end %></strong>
                 </li>
                  <li>
                   Resource Type: <strong class="type"><%= entry.category && entry.category.name %></strong>
@@ -33,8 +36,14 @@
 <script type ="text/javascript">
 
         document.getElementById("running-total").innerHTML =$('.resource-box').length
-  
 
+</script>
+<script type = "text/javascript">
+var userList = new List('all-resources', { 
+  valueNames: ['name', 'topic', 'type', 'level'],
+   page: 10,
+  pagination: true,
+  size: true
 
-
+});
 </script>

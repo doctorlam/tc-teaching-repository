@@ -23,7 +23,7 @@
       <div class="border-bottom"></div>
       <p><strong>Resource Description</strong><br><%= @entry.description %></p>
         <ul>
-          <li><strong>Topic</strong>: <%= @entry.topic && @entry.topic.name %></li>
+          <li><strong>Topic</strong>:<% for @topic in @entry.topics %><%= @topic.name %>, <% end %></li>
           <li><strong>Resource Type</strong>: <%= @entry.category && @entry.category.name %></li>
           <li><strong>Course Type</strong>: <%= @entry.level %></li>
       </ul>

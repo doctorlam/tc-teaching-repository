@@ -76,13 +76,21 @@
     <div class="circle-number">6</div>
 
       <div class="text">
+        <h4>Attach or Link a Resource</h4>
         <% if @entry.attachment? %>
+        <strong><%= form.label :remove_attachment, "Remove Attached File?" %></strong><br>
+        <label>
         <%= form.check_box :remove_attachment %>
 
           <%= @entry.attachment.file.filename %>
+        </label> or 
+  <%= form.file_field :attachment, class: 'form-control' %><br> <br><br>
+        <%= form.text_field :url_link, placeholder: "Paste URL", class: "form-control" %>
         <% else %>
-        <h4>Attach the Resource</h4>
-        <%= form.file_field :attachment %>
+        <%= form.file_field :attachment, class: 'form-control' %><br> 
+        <%= form.label :url_link, "Link to Resource" %>
+        <%= form.text_field :url_link, placeholder: "Paste URL", class: "form-control" %>
+
       </div>
 
     <% end %>
@@ -92,6 +100,6 @@
 
   <div class="actions entry-button">
     <br>
-    <%= form.submit "Create Resource", class: 'btn btn-primary' %>
+    <%= form.submit class: 'btn btn-primary' %>
   </div>
 <% end %>

@@ -450,6 +450,12 @@ p.contributor {
 .description h4 {
 	margin-top: 10px;
 }
+.description a {
+	text-decoration: underline;
+}
+.description a:visited {
+	color: #85AD61 !important;
+}
 /* =========footer============ */
 .footer {
 	height: 400px;

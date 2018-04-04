@@ -42,18 +42,26 @@
         <% end %>
       </div><!--/list-->
 
-    <br>
-<script type ="text/javascript">
+ <script type ="text/javascript">
 
-        document.getElementById("running-total").innerHTML =$('.resource-box').length
-
+ document.getElementById("running-total").innerHTML =$('.resource-box').length
 </script>
 <script type = "text/javascript">
 var userList = new List('all-resources', { 
   valueNames: ['name', 'topic', 'type', 'level'],
-   page: 10,
+   page: 8,
   pagination: true,
   size: true
 
 });
+</script>
+
+ <script type ="text/javascript">
+  $( ".search" ).keyup(function() {
+
+        document.getElementById("running-total").innerHTML =$('.resource-box').length
+
+});
+
+
 </script>

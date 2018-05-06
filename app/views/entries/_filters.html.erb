@@ -11,7 +11,7 @@
         <% @topics.order(:name).each do |topic| %>
         <label><%= check_box_tag "by_topics[]", topic.id %><%= topic.name %></label><br>
               <% end %>
-            
+            <%= submit_tag "Sumbit", name: nil %>
         <% end %>
       </div><!--/list-->
     </div><!--/wrapper-->

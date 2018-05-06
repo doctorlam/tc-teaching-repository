@@ -11,7 +11,11 @@ class EntriesController < ApplicationController
   # GET /entries
   # GET /entries.json
   def index
+ @entries = if params[:term]
+    Entry.where('title LIKE ?', "%#{params[:term]}%")
+  else    
     @entries = apply_scopes(Entry.order(:created_at => 'DESC'))
+  end
 
   end
 
@@ -92,7 +96,7 @@ class EntriesController < ApplicationController
     
     # Never trust parameters from the scary internet, only allow the white list through.
     def entry_params
-      params.require(:entry).permit({topic_ids: []}, {category_ids: []},:description, :category_id, :title, :entry_type,:entry_type_other, :genre, :level, :course,  :attachment, :remove_attachment, :entry_id, :user, :user_id, :id, :url_link)
+      params.require(:entry).permit({topic_ids: []}, {category_ids: []}, {course_ids: []}, :description, :category_id, :title, :entry_type,:entry_type_other, :genre, :level, :course,  :attachment, :remove_attachment, :entry_id, :user, :user_id, :id, :url_link, :term)
     end
     def user_is_current_user
     unless current_user == @entry.user or current_user.admin?

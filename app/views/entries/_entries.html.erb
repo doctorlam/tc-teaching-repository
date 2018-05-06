@@ -4,6 +4,15 @@
         <div class="resource-box">
               <ul>
                 <li class="name"><h3><%= link_to entry.title, entry %></h3></li>
+                <li>Course: 
+                <% for course in entry.courses %>
+
+                  <strong class="topic">
+
+                    <%= course.name %> | </strong>
+                  <% end %>
+                </li>
+                
                 <li>Topic: 
                 <% for topic in entry.topics %>
 

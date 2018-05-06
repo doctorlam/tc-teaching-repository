@@ -19,6 +19,7 @@
       </div><!--/description-->
         <div class="details">
           <ul>
+             <li><strong>Course</strong>:<% for @course in @entry.courses %><%= @course.name %> | <% end %></li>
             <li><strong>Topic</strong>:<% for @topic in @entry.topics %><%= @topic.name %> | <% end %></li>
             <li><strong>Resource Type</strong>: <% for @category in @entry.categories %><%= @category.name %> | <% end %></li>
             <li><strong>Course Type</strong>: <%= @entry.level %></li>

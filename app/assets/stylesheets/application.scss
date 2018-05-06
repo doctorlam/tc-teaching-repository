@@ -84,6 +84,12 @@ h4 {
 	border: 1px solid #8DC05F !important;
 	color: gray !important;
 }
+.btn-danger, .btn-danger:visited {
+	color: white;
+}
+.btn-danger:hover {
+	color: red;
+}
 header .btn-primary:hover {
 	color: white !important;
 }

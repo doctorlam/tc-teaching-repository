@@ -175,6 +175,78 @@ align-items:center;
 .logo li {
 	font-size: .9rem;
 }
+/* ==========PORTAL PAGE STYLES ========== */
+.portal {
+	display:flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+.bottom-border {
+	border-bottom: 3px solid gray;
+	padding-bottom: 20px;
+	margin-top: 20px;
+	width: 100px;
+	margin: 0 auto;
+	margin-bottom:20px;
+
+}
+.top-portal-section {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-bottom: 2px solid gray;
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+.add {
+	width: 30%;
+}
+.add .fa-plus-square {
+	font-size: 5rem;
+}
+.course {
+	width: 100%;
+	text-align: center;
+}
+.course-flex {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	max-width: 1200px;
+}	
+.course-box {
+	width: 250px;
+	height: 150px;
+	border: 1px solid gray;
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	margin: 0 20px 20px 0;
+}
+.topic .course-box {
+	justify-content: center !important;
+}
+#hover-area {
+  margin: 0 auto;
+  display: block;
+  cursor: pointer;
+	
+}
+#reveal {
+	width: 100%;
+	display: none;
+	
+}
+a:hover {
+	color: gray;
+	background: gray;
+}
 /* ==========LANDING PAGE STYLES ========== */
 
 .hero {
@@ -350,7 +422,14 @@ margin-bottom: 50px;
 	font-weight: bold;
 }
 /* ==========Filters on Entries Index ========== */
-
+#all-resources .fa-times-circle {
+	font-size: 2.5rem;
+	color: red;
+}
+.search-bar {
+	display: flex;
+	width: 100%;
+}
 .type-filter input {
 	margin-right: 5px;
 	border-radius: 5px;

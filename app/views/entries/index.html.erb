@@ -3,16 +3,21 @@
 <div id="all-resources">
 <div class="row">
     <div class="col-md-4">
+      <div class="search-bar">
 <%= form_tag(entries_path, method: :get) do %>
   <%= text_field_tag :term, params[:term] %>
-  <%= submit_tag 'Search', name: nil, class: 'btn btn-primary' %>
+  <%= submit_tag 'Search!', name: nil, class: 'btn btn-primary' %>
+       <%= link_to entries_path do %>
+        &nbsp;<i class="fas fa-times-circle"></i>
+       <% end %>
+     </div><!--/search-bar-->
 <% end %> 
        <%= render 'filters' %>
     </div><!--/col-md-4-->
     
     <div class="col-md-8">
           <h1>Tech Comm Resources</h1>
-          <%= link_to "TECM 1700", entries_path(:by_courses => 1) %>
+         
  Page: <ul class="pagination"></ul> <p class="counter"></p>
 
          <div class="running"># of Entries matching criteria ( <p id="running-total"></p> )</div>
@@ -24,8 +29,7 @@
   </div><!--/row-->
 </div><!--/container-->
 </div><!--/test-list-->
-
-<script type = "text/javascript">
+<script>
 $(function () {
   $('input[type=checkbox]').change(function(){
   $.get($('.entries_search').attr('action'),

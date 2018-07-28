@@ -6,13 +6,14 @@ class EntriesController < ApplicationController
   has_scope :by_categories, type: :array
   has_scope :by_level, type: :array
   has_scope :by_topics, type: :array
+  has_scope :by_courses, type: :array
 
 
   # GET /entries
   # GET /entries.json
   def index
  @entries = if params[:term]
-    Entry.where('title LIKE ?', "%#{params[:term]}%")
+    Entry.where('title ILIKE ?', "%#{params[:term]}%")
   else    
     @entries = apply_scopes(Entry.order(:created_at => 'DESC'))
   end
@@ -91,6 +92,7 @@ class EntriesController < ApplicationController
     def set_variables
       @categories = Category.all
       @topics = Topic.all
+      @courses = Course.all
      
     end
     

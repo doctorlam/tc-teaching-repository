@@ -1,29 +1,42 @@
       <br>
-   
-    <div class="type-filter">
-      <div id="button1" class="flex-container"><h4>Filter by Resource Topic</h4><i class= "material-icons">add_circle_outline</i></div>
+      <div class="type-filter">
+      <div id ="button1" class="flex-container"><h4>Filter by Class</h4><i class="material-icons">add_circle_outline</i></div>
       <div class="filter-border"></div>
 
-      <%= form_tag entries_path, method: 'get', class: "entries_search" do%>
-    <div id="wrapper1" class="closed">
-      <div id ="filter1">
+      <%= form_tag entries_path, method: 'get', class: "entries_search" do %>
+<div id="wrapper1">
+      <div id="filter1">
+        <% @courses.order(:name).each do |course| %>
+        <label><%= check_box_tag "by_courses[]", course.id %><%= course.name %></label><br>
+              <% end %>
+
+              <% end %>
+          </div><!--/list-->
+        </div><!--/wrapper-->
+      </div><!--/type-filter-->
+    <div class="type-filter">
+      <div id="button2" class="flex-container"><h4>Filter by Resource Topic</h4><i class= "material-icons">add_circle_outline</i></div>
+      <div class="filter-border"></div>
+
+      <%= form_tag entries_path, method: 'get', class: "entries_search" do %>
+    <div id="wrapper2" class="closed">
+      <div id ="filter2">
 
         <% @topics.order(:name).each do |topic| %>
         <label><%= check_box_tag "by_topics[]", topic.id %><%= topic.name %></label><br>
               <% end %>
-            <%= submit_tag "Sumbit", name: nil %>
         <% end %>
       </div><!--/list-->
     </div><!--/wrapper-->
   </div><!--/type-filter-->
 
       <div class="type-filter">
-      <div id ="button2" class="flex-container"><h4>Filter by Resource Type</h4><i class="material-icons">add_circle_outline</i></div>
+      <div id ="button3" class="flex-container"><h4>Filter by Resource Type</h4><i class="material-icons">add_circle_outline</i></div>
       <div class="filter-border"></div>
 
-      <%= form_tag entries_path, method: 'get', class: "entries_search" do%>
-<div id="wrapper2" class="closed">
-      <div id="filter2">
+      <%= form_tag entries_path, method: 'get', class: "entries_search" do %>
+<div id="wrapper3" class="closed">
+      <div id="filter3">
         <% @categories.order(:name).each do |category| %>
         <label><%= check_box_tag "by_categories[]", category.id %><%= category.name %></label><br>
               <% end %>
@@ -32,32 +45,10 @@
           </div><!--/list-->
         </div><!--/wrapper-->
       </div><!--/type-filter-->
-
-      <div class="type-filter">
-      <div class="flex-container" id="button3"><h4>Filter by Course Type</h4><id class="material-icons">add_circle_outline</i></div>
-      <div class="filter-border"></div>
-      <%= form_tag entries_path, method: 'get', class: "entries_search" do%>
-<div id="wrapper3" class="closed">
-      <div id ="filter3">
-        <label>
-           <label><%= check_box_tag "by_level[]", "All Students" %>All Students
-        </label> <br>
-        <label>
-          <%= check_box_tag "by_level[]", "Graduate" %>Graduate
-
-          </label> <br>
-        <label><%= check_box_tag "by_level[]", "Undergraduate" %>Undergraduate
-        </label><br>
       
-
-
-              <% end %>
-        </div><!--/list-->
-      </div><!--/wrapper -->
-
-      </div><!--/type-filter-->
+      
       <br>
-       <%= link_to "Clear All Filters", entries_path, class: 'btn btn-danger form-control' %><br><br>
+  
 
 <script type="text/javascript">
 $(function() {

@@ -1,5 +1,5 @@
 class CoursesController < ApplicationController
-before_action :set_category, only: [:show, :edit, :update, :destroy]
+before_action :set_course, only: [:show, :edit, :update, :destroy]
 before_action :authenticate_user!, only: [:new, :create, :edit, :update, :index]
   before_action :user_is_current_user, only: [:new, :create, :edit, :update, :destroy]
   # GET /courses
@@ -72,4 +72,9 @@ before_action :authenticate_user!, only: [:new, :create, :edit, :update, :index]
     def course_params
       params.require(:course).permit({entry_ids: []},:name, :user_id)
     end
+    def user_is_current_user
+    unless current_user.admin?
+      redirect_to(root_url, alert: "Sorry! You can't edit this resource since you didn't create it.") and return
+    end
+  end
 end

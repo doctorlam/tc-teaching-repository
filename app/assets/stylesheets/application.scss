@@ -430,10 +430,7 @@ margin-bottom: 50px;
 	display: flex;
 	width: 100%;
 }
-.type-filter input {
-	margin-right: 5px;
-	border-radius: 5px;
-}
+
 .type-filter h3 {
 	color: #484E5F;
 	padding-bottom: 3px;
@@ -441,6 +438,40 @@ margin-bottom: 50px;
 .type-filter label {
 	cursor: pointer;
 	color: #6ab04c;
+}
+.type-filter input {
+	 display:none;
+}
+.type-filter input:checked + span {
+	background: #409155 !important;
+	color: white;
+	border: #409155;
+}
+.type-filter label {
+	margin-top: 20px;
+}
+.type-filter span  {
+	width: 150px;
+	border: 1px solid gray;
+	width: 150px;
+	margin-right:10px;
+	padding-left:10px;
+	padding-right: 10px;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	border-radius: 2.5px;
+	
+}
+.type-filter span:hover {
+	background: white;
+	color: gray;
+}
+
+#filter1, #filter2, #filter3 {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap:wrap;
 }
 .plus {
 	border: 1px dotted #DEDDDF;

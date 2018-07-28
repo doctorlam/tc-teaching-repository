@@ -1,5 +1,5 @@
       <br>
-      <div class="type-filter">
+      <div class="type-filter course-filter">
       <div id ="button1" class="flex-container"><h4>Filter by Class</h4><i class="material-icons">add_circle_outline</i></div>
       <div class="filter-border"></div>
 
@@ -7,7 +7,7 @@
 <div id="wrapper1">
       <div id="filter1">
         <% @courses.order(:name).each do |course| %>
-        <label><%= check_box_tag "by_courses[]", course.id %><%= course.name %></label><br>
+        <label><%= check_box_tag "by_courses[]", course.id %><span><%= course.name %></span></label><br>
               <% end %>
 
               <% end %>
@@ -23,7 +23,7 @@
       <div id ="filter2">
 
         <% @topics.order(:name).each do |topic| %>
-        <label><%= check_box_tag "by_topics[]", topic.id %><%= topic.name %></label><br>
+        <label><%= check_box_tag "by_topics[]", topic.id %><span><%= topic.name %></span></label><br>
               <% end %>
         <% end %>
       </div><!--/list-->
@@ -38,7 +38,7 @@
 <div id="wrapper3" class="closed">
       <div id="filter3">
         <% @categories.order(:name).each do |category| %>
-        <label><%= check_box_tag "by_categories[]", category.id %><%= category.name %></label><br>
+        <label><%= check_box_tag "by_categories[]", category.id %><span><%= category.name %></span></label><br>
               <% end %>
 
               <% end %>

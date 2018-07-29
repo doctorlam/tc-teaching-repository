@@ -124,7 +124,7 @@ nav ul {
 }
 nav li, nav a {
 	display: inline;
-	margin-left: 30px;
+	margin-right: 30px;
 	color: white;
 	font-size: 1.35rem !important;
 }
@@ -577,6 +577,10 @@ p.contributor {
 .description a:visited {
 	color: #85AD61 !important;
 }
+.likes {
+	display: flex;
+	padding-left: 30px;
+}
 /* =========footer============ */
 .footer {
 	height: 400px;
@@ -645,11 +649,9 @@ p.contributor {
 .bottom-links {
 	display: flex;
 	margin-bottom: 0;
-	position: absolute;
-	bottom:45px;
+	
 }
-p.contributor {
+.bottom {
 	position: absolute;
-	bottom:0px;
-
+	bottom: 10px;
 }

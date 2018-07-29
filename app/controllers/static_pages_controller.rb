@@ -5,4 +5,8 @@ class StaticPagesController < ApplicationController
 	def myresources
 		@entries = current_user.entries
 	end
+	def favorites
+		@entries = current_user.find_up_voted_items
+
+	end
 end

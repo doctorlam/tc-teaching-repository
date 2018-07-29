@@ -1,5 +1,5 @@
  <div class="myresources-container">
-   <h1><span style="color:#409155"><i class="fas fa-file"></i></span> Resources You Created</h1>
+   <h1><span style="color:#409155"><i class="fas fa-heart"></i></span> Favorite Resources</h1>
       
 
   <div class="my-resource-box">
@@ -18,7 +18,7 @@
                    <% end %>
                 </li>
               </ul>
-        <div class="bottom">
+            <div class="bottom">
                <div class="likes">
        <%= link_to like_entry_path(entry), method: :put do %>
                 <i class="fas fa-thumbs-up"></i>
@@ -47,4 +47,3 @@
         <% end %>
       </div><!--/my-resource-box-->
       </div><!--/container-->
-

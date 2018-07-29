@@ -3,7 +3,12 @@ Rails.application.routes.draw do
   devise_for :users
   resources :topics
   resources :categories
-  resources :entries
+  resources :entries do
+   member do
+    put "like", to: "entries#upvote"
+    put "dislike", to: "entries#downvote"
+  end
+ end
   resources :pages
   
  authenticated :user do
@@ -15,7 +20,9 @@ unauthenticated :user do
 end
   get "static_pages/portal"
     get 'pages/index'
-        get 'static_pages/myresources'
+    get 'static_pages/myresources'
+    get 'static_pages/favorites'
+
 
 
 

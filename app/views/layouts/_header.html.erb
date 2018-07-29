@@ -11,14 +11,23 @@
 <% if user_signed_in? %>
 	<nav class="signed-in">
 			<ul>
-				<li><%= link_to "Explore", static_pages_portal_path %></li>
-				<li><%= link_to 'View All Resources', entries_path %>
-					<li><%= link_to "My Resources", static_pages_myresources_path %></li>
+				<li><i class="fas fa-search"></i>
+
+<%= link_to "Explore", static_pages_portal_path %></li>
+				<li><i class="fas fa-file"></i>
+
+<%= link_to 'All Resources', entries_path %>
+					
+
+					<li><i class="fas fa-heart"></i>
+
+<%= link_to "Favorites", static_pages_favorites_path %></li>
 					<li><%= link_to 'Create', new_entry_path, class: 'btn btn-primary' %></li>
 				
 				</ul>
 			<ul class="bottom-nav">
 			<li class="signed-in-text">Signed in as: <%= current_user.email %></li>
+		<li class="signed-in-text"><i class="fas fa-folder"></i><%= link_to "My Resources", static_pages_myresources_path %></li>
 			<li class="signed-in-text"><%= link_to "Sign Out", destroy_user_session_path,  method: :delete  %></li>
 		<% if user_signed_in? && current_user.admin? %>
 		
@@ -29,7 +38,9 @@
 	</nav>
 			<% else %>
 			<nav class="signed-out">
-				<li><%= link_to "Explore", static_pages_portal_path %></li>
+				<li><i class="fas fa-search"></i>
+
+<%= link_to "Explore", static_pages_portal_path %></li>
 				<li><%= link_to "Sign In", new_user_session_path %></li>
 				<li><%= link_to "Register", new_user_registration_path%></li>
 			</nav>

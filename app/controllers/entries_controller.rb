@@ -12,8 +12,9 @@ class EntriesController < ApplicationController
   # GET /entries
   # GET /entries.json
   def index
- @entries = if params[:term]
+    @entries = if params[:term]
     Entry.where('title ILIKE ?', "%#{params[:term]}%")
+
   else 
     @entries = apply_scopes(Entry.order(:created_at => 'DESC'))
   
@@ -83,7 +84,19 @@ class EntriesController < ApplicationController
       format.json { head :no_content }
     end
   end
+def upvote 
+  @entry = Entry.find(params[:id])
+  @entry.upvote_by current_user
+  redirect_back fallback_location: root_path
 
+end  
+
+def downvote
+  @entry = Entry.find(params[:id])
+  @entry.downvote_by current_user
+  redirect_back fallback_location: root_path
+
+end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_entry

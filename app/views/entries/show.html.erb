@@ -25,6 +25,20 @@
             <li><strong>Course Type</strong>: <%= @entry.level %></li>
         </ul>
       </div><!--/details-->
+      <div class="likes">
+       <%= link_to like_entry_path(@entry), method: :put do %>
+                <i class="fas fa-thumbs-up"></i>
+                <%= @entry.get_upvotes.size %>
+              <% end %>
+              &nbsp; 
+              &nbsp;
+
+              <%= link_to dislike_entry_path(@entry), method: :put do %>
+                <i class="fas fa-thumbs-down"></i>
+
+                <%= @entry.get_downvotes.size %>
+              <% end %>
+        </div>
     </div><!--/show-content-->
       </div><!--/main-content-->
       </div><!--/col-md-8-->

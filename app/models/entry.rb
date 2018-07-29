@@ -9,10 +9,11 @@ class Entry < ApplicationRecord
 
   	has_many :entry_courses
   	has_many :courses, through: :entry_courses
-	
-	
+	has_many :favorites, dependent: :destroy
 	
 	belongs_to :user
+	acts_as_votable
+
 	scope :by_categories, ->(ids_ary) { joins(entry_categories: :category).where("categories.id" => ids_ary) }
 	scope :by_topics, ->(ids_ary) { joins(entry_topics: :topic).where("topics.id" => ids_ary) }
 	scope :by_level, -> level { where(:level => level) }

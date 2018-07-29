@@ -7,4 +7,6 @@ class User < ApplicationRecord
      has_many :entries
      has_many :topics
      has_many :categories
+  	  acts_as_voter
+
 end

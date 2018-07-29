@@ -41,6 +41,20 @@
                    <% end %>
                 </li>
               </ul>
+
+              <%= link_to like_entry_path(entry), method: :put do %>
+                <i class="fas fa-thumbs-up"></i>
+                <%= entry.get_upvotes.size %>
+              <% end %>
+              &nbsp; 
+              &nbsp;
+
+              <%= link_to dislike_entry_path(entry), method: :put do %>
+                <i class="fas fa-thumbs-down"></i>
+
+                <%= entry.get_downvotes.size %>
+              <% end %>
+              <br><br>
               <td><%= link_to 'View Resource', entry %></td> <% if current_user.try(:admin) or current_user == entry.user %> | 
           
             <td><%= link_to 'Edit', edit_entry_path(entry) %></td> |

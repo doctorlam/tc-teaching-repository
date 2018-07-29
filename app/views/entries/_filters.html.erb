@@ -4,13 +4,13 @@
       <div class="filter-border"></div>
 
       <%= form_tag entries_path, method: 'get', class: "entries_search" do %>
-<div id="wrapper1">
+<div id="wrapper1" class="closed">
       <div id="filter1">
         <% @courses.order(:name).each do |course| %>
         <label><%= check_box_tag "by_courses[]", course.id %><span><%= course.name %></span></label><br>
               <% end %>
-
               <% end %>
+
           </div><!--/list-->
         </div><!--/wrapper-->
       </div><!--/type-filter-->
@@ -99,5 +99,12 @@ $(function() {
     }
   
   });
+});
+</script>
+<script>
+  $(".check_box").change(function(){
+  if($(this).prop('checked') == true){
+    $("form").submit();
+  }
 });
 </script>

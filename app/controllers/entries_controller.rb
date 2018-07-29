@@ -14,8 +14,9 @@ class EntriesController < ApplicationController
   def index
  @entries = if params[:term]
     Entry.where('title ILIKE ?', "%#{params[:term]}%")
-  else    
+  else 
     @entries = apply_scopes(Entry.order(:created_at => 'DESC'))
+  
   end
 
   end

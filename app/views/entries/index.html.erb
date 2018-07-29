@@ -16,8 +16,16 @@
     </div><!--/col-md-4-->
     
     <div class="col-md-8">
-          <h1>Tech Comm Resources</h1>
-         
+
+      <% if params[:by_courses] %>
+      <h1><%=link_to "TECM Resources", entries_path %> > <span style="color:#409155"><%= entries_name %></span></h1>
+
+      <% elsif params[:by_topics] %>
+       <h1><%=link_to "TECM Resources", entries_path %> > <span style="color:#409155"><%= entries_topic %></span></h1>
+      <% else %>
+        <h1>TECM Resources</h1>
+      <% end %>
+
  Page: <ul class="pagination"></ul> <p class="counter"></p>
 
          <div class="running"># of Entries matching criteria ( <p id="running-total"></p> )</div>

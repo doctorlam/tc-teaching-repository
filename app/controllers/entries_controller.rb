@@ -85,17 +85,24 @@ class EntriesController < ApplicationController
     end
   end
 def upvote 
-  @entry = Entry.find(params[:id])
-  @entry.upvote_by current_user
-  redirect_back fallback_location: root_path
-
+  if user_signed_in?
+    @entry = Entry.find(params[:id])
+    @entry.upvote_by current_user
+    redirect_back fallback_location: root_path
+  else
+    redirect_to new_user_session_path, alert: "You'll need to sign in to vote!"
+  end
 end  
 
 def downvote
+  if user_signed_in?
+
   @entry = Entry.find(params[:id])
   @entry.downvote_by current_user
   redirect_back fallback_location: root_path
-
+else
+    redirect_to new_user_session_path, alert: "You'll need to sign in to vote!"
+  end
 end
   private
     # Use callbacks to share common setup or constraints between actions.

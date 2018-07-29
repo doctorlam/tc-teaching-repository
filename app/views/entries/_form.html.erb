@@ -15,7 +15,7 @@
   <div class="field">
     <div class="flex">
       <div class="circle-number">1</div>
-      <div class="text"><h4>What is this resource?</h4>
+      <div class="text"><h4>Give it a Memorable Name</h4>
         <%= form.text_field :title, id: :entry_title, class: 'form-control' %>
       </div>
 
@@ -75,19 +75,11 @@
         <% end %>
     </div>
 </div>
-  <div class="field">
-    <div class="flex">
-      <div class="circle-number">6</div>
-      <div class="text">
-        <h4>Who's it for?</h4>
-       <%= form.select(:level, [ "Undergraduate", "Graduate", "All Students"], id: "entry", :include_blank => 'Select an option') %>
- </div><!--/text-->
-  </div>
-</div><!--/flex-->
+
 
   <div class="field">
     <div class="flex">
-    <div class="circle-number">7</div>
+    <div class="circle-number">6</div>
 
       <div class="text">
         <h4>Attach or Link a Resource</h4>
@@ -101,7 +93,7 @@
   <%= form.file_field :attachment, class: 'form-control' %><br> <br><br>
         <%= form.text_field :url_link, placeholder: "Paste URL", class: "form-control" %>
         <% else %>
-        <%= form.file_field :attachment, class: 'form-control' %><br> 
+        <%= form.file_field :attachment, class: 'form-control' %><br> <h5>OR</h5><br>
         <%= form.label :url_link, "Link to Resource" %>
         <%= form.text_field :url_link, placeholder: "Paste URL", class: "form-control" %>
 

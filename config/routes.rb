@@ -15,6 +15,8 @@ unauthenticated :user do
 end
   get "static_pages/portal"
     get 'pages/index'
+        get 'static_pages/myresources'
+
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

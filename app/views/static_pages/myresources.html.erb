@@ -1,0 +1,54 @@
+ <div class="myresources-container">
+   <h1><span style="color:#409155"><%= current_user.email %>'s</span> Resources</h1>
+  <div class="my-resource-box">
+        <% @entries.each do |entry| %>
+        <div class="resource-box single-box">
+              <ul>
+                <li class="name"><h3><%= link_to entry.title, entry %></h3></li>
+               <% if entry.attachment? %>
+                <li>
+                  <i class="material-icons">attach_file</i>
+                   <%= link_to entry.attachment.file.filename, entry.attachment_url if entry.attachment? %> <br>
+
+                   <% if entry.url_link? %>
+                   <a target = "blank" href="<%= entry.url_link %>"><%= entry.url_link %></a>
+                  <% end %> <!--/entry attachment exists? -->
+                   <% end %>
+                </li>
+              </ul>
+              <ul class="bottom-links">
+              <li><%= link_to 'View Resource', entry %></td> <% if current_user.try(:admin) or current_user == entry.user %> | </li>
+          
+            <li><%= link_to 'Edit', edit_entry_path(entry) %> | </li> 
+            <li><%= link_to 'Delete', entry, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+          </ul>
+          <% end %>
+              <p class="contributor">Contributed by: <%= entry.user.email %></p>
+          </div><!--/resource-box-->
+        <% end %>
+      </div><!--/my-resource-box-->
+      </div><!--/container-->
+
+ <script type ="text/javascript">
+
+ document.getElementById("running-total").innerHTML =$('.resource-box').length
+</script>
+<script type = "text/javascript">
+var userList = new List('all-resources', { 
+  valueNames: ['name', 'topic', 'type', 'level'],
+   page: 8,
+  pagination: true,
+  size: true
+
+});
+</script>
+
+ <script type ="text/javascript">
+  $( ".fuzzy-search" ).keyup(function() {
+
+        document.getElementById("running-total").innerHTML =$('.resource-box').length
+
+});
+
+
+</script>

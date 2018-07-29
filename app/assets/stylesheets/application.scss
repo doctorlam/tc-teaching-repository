@@ -116,25 +116,30 @@ header {
 nav.signed-in {
 	align-self: flex-end;
 	margin-right: 10px;
+
 }
 
 nav ul {
 	list-style-type: none;
 }
-nav li {
+nav li, nav a {
 	display: inline;
 	margin-left: 30px;
 	color: white;
-	font-size: 1rem !important;
+	font-size: 1.35rem !important;
 }
 nav a, nav a:visited, .logo a, .logo a:visited {
 	color: white;
 
 }
-p.signed-in {
+li.signed-in-text, .signed-in-text a {
 	color: white;
-	font-size: .8rem;
+	font-size: .8rem !important;
 	text-align: right;
+}
+.bottom-nav {
+	text-align:right;
+	margin-right: 10px;
 }
 .logo {
 	display: flex;
@@ -608,4 +613,43 @@ p.contributor {
 .Site {display: flex;
   min-height: 100vh;
   flex-direction: column;
+}
+
+/* MY RESOURCES PAGE */
+.myresources-container {
+	width: 75%;
+	margin: 0 auto;
+	margin-top: 40px;
+}
+.myresources-container h1 {
+	text-align: center;
+}
+.my-resource-box {
+	display: flex;
+	flex-wrap: wrap;
+	max-width: 1400px;
+	justify-content: center;
+	align-items: center;
+}
+.single-box {
+	width: 300px;
+	height: 300px;
+	border: 0.5px solid gray;
+	display: flex;
+	flex-direction: column;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	position: relative;
+}
+.bottom-links {
+	display: flex;
+	margin-bottom: 0;
+	position: absolute;
+	bottom:45px;
+}
+p.contributor {
+	position: absolute;
+	bottom:0px;
+
 }

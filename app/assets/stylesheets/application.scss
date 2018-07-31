@@ -200,7 +200,6 @@ align-items:center;
 }
 .top-portal-section {
 	display: flex;
-	align-items: center;
 	justify-content: center;
 	border-bottom: 2px solid gray;
 	padding-top: 50px;
@@ -215,6 +214,12 @@ align-items:center;
 .course {
 	width: 100%;
 	text-align: center;
+}
+.all-courses {
+	border: 1px solid gray;
+	height: 200px;
+	text-align:center;
+	padding:10px;
 }
 .course-flex {
 	display: flex;

@@ -27,6 +27,7 @@ class EntriesController < ApplicationController
   # GET /entries/1
   # GET /entries/1.json
   def show
+
   end
 
   # GET /entries/new
@@ -104,7 +105,10 @@ else
     redirect_to new_user_session_path, alert: "You'll need to sign in to vote!"
   end
 end
+  
   private
+
+
     # Use callbacks to share common setup or constraints between actions.
     def set_entry
       @entry = Entry.find(params[:id])

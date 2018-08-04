@@ -1,6 +1,23 @@
 <div class="container-fluid">
 <p id="notice"><%= notice %></p>
 <div class="row">
+    <div class="col-md-4 download-resource">
+      <div class="flex-column">
+      <h2 style="background: #409155; color: white; padding:5px">Download Resource</h2>
+      <br>
+
+        <p style="width: 100%"><i style="font-size: 2.5rem;" class="material-icons">attach_file</i><%= link_to @entry.attachment.file.filename, @entry.attachment_url if @entry.attachment? %> <br>
+        <% if @entry.url_link? %>
+          <a style="font-size: 1.5rem !important;" target="blank" href="<%= @entry.url_link %>"><%= @entry.url_link %></a>
+        <% end %>
+        </p>
+        <br>
+        <br>
+
+        <%= link_to '<< Back to all resources', entries_path, class:'back' %>
+      </div>
+
+    </div><!--/col-md-4-->
     <div class="col-md-8">
       <div class="main-content entry-description">
     <div class="top-section">
@@ -43,20 +60,7 @@
       </div><!--/main-content-->
       </div><!--/col-md-8-->
 
-  <div class="col-md-4">
-      <div class="flex-column">
-      <h2>Download Resource</h2>
-      <div class="border-bottom"></div>
 
-        <p style="width: 80%"><i class="material-icons">attach_file</i><%= link_to @entry.attachment.file.filename, @entry.attachment_url if @entry.attachment? %> <br>
-        <% if @entry.url_link? %>
-          <a target="blank" href="<%= @entry.url_link %>"><%= @entry.url_link %></a>
-        <% end %>
-        </p>
-        <%= link_to '<< Back to all resources', entries_path, class:'back' %>
-      </div>
-
-    </div><!--/col-md-4-->
   </div><!--/row-->
 
 </div>

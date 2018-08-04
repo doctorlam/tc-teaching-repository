@@ -590,6 +590,11 @@ p.contributor {
 	display: flex;
 	padding-left: 30px;
 }
+.download-resource a {
+	font-size: 1.35rem;
+	text-decoration: underline;
+	font-weight: bold;
+}
 /* =========footer============ */
 .footer {
 	height: 400px;

@@ -9,7 +9,7 @@ class Entry < ApplicationRecord
 
   	has_many :entry_courses
   	has_many :courses, through: :entry_courses
-	has_many :favorites, dependent: :destroy
+	has_many :favorites
 	
 	belongs_to :user
 	acts_as_votable

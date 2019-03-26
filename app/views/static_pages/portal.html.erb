@@ -1,6 +1,6 @@
 <div class="portal">
 
-	<div class="top-portal-section">
+	<!-- <div class="top-portal-section">
 
 			<div class="course">
 				<i style="font-size: 7rem" class="fas fa-users"></i>
@@ -86,11 +86,11 @@
 
 
 
-				</div><!--/course-flex-->
+				</div> --> <!--/course-flex-->
 		</div><!--/course-->
 			<div class="all-courses">
 			<%= link_to entries_path do %>
-				<i style="font-size: 5rem; text-align:center" class="fas fa-archive"></i>
+				<i style="font-size: 2rem; text-align:center" class="fas fa-archive"></i>
 				<h3 style="text-align:center">All Resources</h3>
 
 			<% end %>
@@ -101,9 +101,27 @@
 		</div><!--/top-portal-section-->
 
 <div class="top-portal-section topic">
-			<div class="course">
-				<i style = "font-size: 7rem" class="fas fa-folder-open"></i>
+	<div class="grid">
+			<figure class="effect-lily">
+				<%= image_tag("audience.jpg", :alt => "audience image") %>
+					<figcaption>
+						<h2>Audience <span>Analysis</span></h2>
+						<p>Explore resources related to audience.</p>
+						<a href="#">View more</a>
+					</figcaption>			
+				</figure>
 
+			<figure class="effect-lily">
+				<%= image_tag("audience.jpg", :alt => "audience image") %>
+					<figcaption>
+						<h2>Visual <span>Design</span></h2>
+						<p>Explore resources related to visual design.</p>
+						<a href="#">View more</a>
+					</figcaption>			
+				</figure>
+	</div><!--grid-->
+			<!--<div class="course">
+				<i style = "font-size: 7rem" class="fas fa-folder-open"></i>
 
 				<h1>Popular Topics</h1>
 				<div class="bottom-border"></div>
@@ -164,7 +182,7 @@
 					</div>
 				<% end %>
 				
-				</div><!--/course-flex-->
+				</div>--><!--/course-flex-->
 		</div><!--/course-->
 		</div><!--/top-portal-section-->
 

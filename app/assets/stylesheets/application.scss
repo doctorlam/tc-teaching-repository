@@ -181,14 +181,20 @@ align-items:center;
 	font-size: .9rem;
 }
 /* ==========PORTAL PAGE STYLES ========== */
-.portal {
-	display:flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	padding-top: 20px;
-	padding-bottom: 20px;
+.hero-slide {
+	height: 600px;
+	object-fit: cover;
 }
+.slide-text {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	left: 10%;
+	background: gray;
+	min-height: 300px;
+
+}
+
 .bottom-border {
 	border-bottom: 3px solid gray;
 	padding-bottom: 20px;
@@ -691,6 +697,7 @@ p.contributor {
 	background: #3085a3;
 	text-align: center;
 	cursor: pointer;
+	margin-left: 2rem;
 }
 
 .grid figure img {
